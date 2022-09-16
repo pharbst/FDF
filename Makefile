@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 23:06:25 by pharbst           #+#    #+#              #
-#    Updated: 2022/09/16 23:08:10 by pharbst          ###   ########.fr        #
+#    Updated: 2022/09/16 23:09:48 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,6 +119,7 @@ fclean:
 	@printf "$(NC)"
 
 re:	rec fclean all rend
+
 
 rec:
 	@echo "$(FPurple)recompiling...$(NC)"
