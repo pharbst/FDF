@@ -1,8 +1,20 @@
-NAME	=
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/09/16 23:06:25 by pharbst           #+#    #+#              #
+#    Updated: 2022/09/16 23:08:10 by pharbst          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME	=	fdf
 
 DEPNAME	= libftio
 
-BNAME	=
+#BNAME	=
 
 CC		=	cc
 
@@ -16,7 +28,7 @@ BOBJDIR	=	./bobj
 
 FILES	=
 
-BFILES	=
+#BFILES	=
 
 Black			=	\033[0;30m
 FBlack			=	\033[1;30m
@@ -40,7 +52,7 @@ NC				=	\033[0m
 
 OBJS	=	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
 
-BOBJS	=	$(addprefix $(BOBJDIR)/, $(BFILES:.c=.o))
+#BOBJS	=	$(addprefix $(BOBJDIR)/, $(BFILES:.c=.o))
 
 all:	start $(NAME) end
 
@@ -65,31 +77,31 @@ $(NAME):	OSTART $(OBJS) OEND
 	@echo "$(FPurple)linking $(DEPNAME) in $(NAME)...$(NC)"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -Llibft -lftio
 
-$(BNAME):	BOSTART $(BOBJS) BOEND
-	@make -C ./libft
-	@$(CC) $(CFLAGS) -o $(BNAME) -Llibft -lftio $(BOBJS)
+#$(BNAME):	BOSTART $(BOBJS) BOEND
+#	@make -C ./libft
+#	@$(CC) $(CFLAGS) -o $(BNAME) -Llibft -lftio $(BOBJS)
 
 $(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/push_swap.h
 	@mkdir -p $(OBJDIR)
 	@$(CC) $(CFLAGS) -o $@ -c $<
 	@printf  "$(NC)$@; "
 
-$(BOBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/checker.h
-	@mkdir -p $(BOBJDIR)
-	@$(CC) $(CFLAGS) -o $@ -c $<
-	@printf "$(NC)$@; "
+#$(BOBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/checker.h
+#	@mkdir -p $(BOBJDIR)
+#	@$(CC) $(CFLAGS) -o $@ -c $<
+#	@printf "$(NC)$@; "
 
 OSTART:
 	@echo "$(Blue)creating object files...$(NC)"
-BOSTART:
-	@echo "$(Blue)creating object files...$(NC)"
+#BOSTART:
+#	@echo "$(Blue)creating object files...$(NC)"
 
 OEND:
 	@echo ""
 	@echo "$(Green)object files created$(NC)"
-BOEND:
-	@echo ""
-	@echo "$(Green)object files created$(NC)"
+#BOEND:
+#	@echo ""
+#	@echo "$(Green)object files created$(NC)"
 
 clean:
 	@make clean -C ./libft
