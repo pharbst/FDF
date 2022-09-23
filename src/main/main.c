@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: peter <peter@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 23:29:48 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/22 18:31:23 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/23 23:16:26 by peter            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@ mlx_image_t	*g_img;
 
 void	hook(void *param)
 {
-	mlx_t	*mlx;
-
-	mlx = param;
 	if (mlx_is_key_down(param, MLX_KEY_ESCAPE))
 		mlx_close_window(param);
 	if (mlx_is_key_down(param, MLX_KEY_UP))
@@ -41,8 +38,10 @@ int32_t	main(void)
 	g_img = mlx_new_image(mlx, 50, 10);
 	memset(g_img->pixels, 255, g_img->width * g_img->height * sizeof(int));
 	mlx_image_to_window(mlx, g_img, 1300, 800);
-	// mlx_loop_hook(mlx, &hook, mlx);
+	mlx_loop_hook(mlx, &hook, mlx);
 	mlx_loop(mlx);
-	// mlx_terminate(mlx);
+	mlx_terminate(mlx);
 	return (EXIT_SUCCESS);
 }
+
+
