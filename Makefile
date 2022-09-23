@@ -6,19 +6,19 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 23:06:25 by pharbst           #+#    #+#              #
-#    Updated: 2022/09/16 23:10:44 by pharbst          ###   ########.fr        #
+#    Updated: 2022/09/17 02:32:41 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	fdf
 
-DEPNAME	= libftio
+DEPNAME	=	libftio, mlx42
 
 #BNAME	=
 
 CC		=	cc
 
-CFLAGS	=	-Wall -Wextra -Werror -I includes -g		#-g flag is for debugging remove it to compile faster
+CFLAGS	=	-Wall -Wextra -Werror -I includes -I libft/includes -g		#-g flag is for debugging remove it to compile faster
 
 SRCDIR	=	./src
 
@@ -26,7 +26,7 @@ OBJDIR	=	./obj
 
 BOBJDIR	=	./bobj
 
-FILES	=
+FILES	=	main.c
 
 #BFILES	=
 
@@ -56,32 +56,46 @@ OBJS	=	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
 
 all:	start $(NAME) end
 
-bonus:	bstart $(BNAME) bend
+#bonus:	bstart $(BNAME) bend
 
 start:
+	@echo "            ################   ########                      ################"
+	@echo "           ################    ###########                  ################"
+	@echo "          #####                ####   ######               #####"
+	@echo "         #####                 ####     #####             #####"
+	@echo "        #####                  ####      ####            #####"
+	@echo "       ###############         ####       ####          ###############"
+	@echo "      ###############          ####       #####        ##############"
+	@echo "     #####                     ####       ####        #####"
+	@echo "    #####                      ####      #####       #####"
+	@echo "   #####                       ####     #####       #####"
+	@echo "  #####                        ####   #####        #####"
+	@echo " #####                         ##########         #####"
+	@echo "#####                          #######           #####"
 	@echo "$(FYellow)make $(NAME)...$(NC)"
 
-bstart:
-	@echo "$(FYellow)make $(BNAME)...$(NC)"
+#bstart:
+#	@echo "$(FYellow)make $(BNAME)...$(NC)"
 
 end:
 	@echo "$(FGreen)$(NAME) done$(NC)"
 
-bend:
-	@echo "$(Green)$(BNAME) done$(NC)"
+#bend:
+#	@echo "$(Green)$(BNAME) done$(NC)"
 
 $(NAME):	OSTART $(OBJS) OEND
 	@echo "$(FWhite)dependencie $(DEPNAME) needed$(NC)"
 	@make -C ./libft
+	@make -C ./MLX42
 #	@cp libft/libft.a $(NAME)
 	@echo "$(FPurple)linking $(DEPNAME) in $(NAME)...$(NC)"
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -Llibft -lftio
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -Llibft -lftio -LMLX42 -lmlx42 -I include -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/"
 
 #$(BNAME):	BOSTART $(BOBJS) BOEND
 #	@make -C ./libft
 #	@$(CC) $(CFLAGS) -o $(BNAME) -Llibft -lftio $(BOBJS)
 
-$(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/push_swap.h
+$(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/fdf.h
 	@mkdir -p $(OBJDIR)
 	@$(CC) $(CFLAGS) -o $@ -c $<
 	@printf  "$(NC)$@; "
@@ -104,18 +118,16 @@ OEND:
 #	@echo "$(Green)object files created$(NC)"
 
 clean:
-	@make clean -C ./libft
-	@echo "$(FRed)make clean pushswap$(Red)"
+	@echo "$(FRed)make clean $(NAME)$(Red)"
 	rm -rf $(OBJDIR)
-	rm -rf $(BOBJDIR)
+#	rm -rf $(BOBJDIR)
 
 fclean:
-	@make fclean -C ./libft
-	@echo "$(FRed)make flcean pushswap$(Red)"
+	@echo "$(FRed)make flcean $(NAME)$(Red)"
 	rm -rf $(OBJDIR)
-	rm -rf $(BOBJDIR)
+#	rm -rf $(BOBJDIR)
 	rm -rf $(NAME)
-	rm -rf $(BNAME)
+#	rm -rf $(BNAME)
 	@printf "$(NC)"
 
 re:	rec fclean all rend
