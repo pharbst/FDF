@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peter <peter@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 23:29:48 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/23 23:16:26 by peter            ###   ########.fr       */
+/*   Updated: 2022/09/23 23:30:41 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	hook(void *param)
 		g_img->instances[0].x += 5;
 }
 
-int32_t	main(void)
+int	main(void)
 {
 	mlx_t	*mlx;
 
@@ -36,7 +36,7 @@ int32_t	main(void)
 	if (!mlx)
 		exit(EXIT_FAILURE);
 	g_img = mlx_new_image(mlx, 50, 10);
-	memset(g_img->pixels, 255, g_img->width * g_img->height * sizeof(int));
+	memset(g_img->pixels, 255 , g_img->width * g_img->height * sizeof(int));
 	mlx_image_to_window(mlx, g_img, 1300, 800);
 	mlx_loop_hook(mlx, &hook, mlx);
 	mlx_loop(mlx);
