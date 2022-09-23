@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 23:06:25 by pharbst           #+#    #+#              #
-#    Updated: 2022/09/17 02:32:41 by pharbst          ###   ########.fr        #
+#    Updated: 2022/09/23 23:36:06 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -144,6 +144,6 @@ commit:
 	git commit -m "$(msg)"
 
 push:
-	git push -u $(branch)
+	git push -u
 
 .PHONY:	all bonus clean fclean re OSTART OEND rend rec"
