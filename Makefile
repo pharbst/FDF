@@ -6,9 +6,32 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 23:06:25 by pharbst           #+#    #+#              #
-#    Updated: 2022/09/23 23:36:06 by pharbst          ###   ########.fr        #
+#    Updated: 2022/09/27 16:20:08 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+
+SHELL=	/bin/bash
+
+Black			=	$(shell echo -e "\033[0;30m")
+FBlack			=	$(shell echo -e "\033[1;30m")
+Red				=	$(shell echo -e "\033[0;31m")
+FRed			=	$(shell echo -e "\033[1;31m")
+Green			=	$(shell echo -e "\033[0;32m")
+FGreen			=	$(shell echo -e "\033[1;32m")
+Brown/Orange	=	$(shell echo -e "\033[0;33m")
+FBrown/Orange	=	$(shell echo -e "\033[1;33m")
+FYellow			=	$(shell echo -e "\033[1;33m")
+Yellow			=	$(shell echo -e "\033[0;33m")
+Blue			=	$(shell echo -e "\033[0;34m")
+FBlue			=	$(shell echo -e "\033[1;34m")
+Purple			=	$(shell echo -e "\033[0;35m")
+FPurple			=	$(shell echo -e "\033[1;35m")
+Cyan			=	$(shell echo -e "\033[0;36m")
+FCyan			=	$(shell echo -e "\033[1;36m")
+FWhite			=	$(shell echo -e "\033[1;37m")
+White			=	$(shell echo -e "\033[0;37m")
+NC				=	$(shell echo -e "\033[0m")
 
 NAME	=	fdf
 
@@ -29,26 +52,6 @@ BOBJDIR	=	./bobj
 FILES	=	main.c
 
 #BFILES	=
-
-Black			=	\033[0;30m
-FBlack			=	\033[1;30m
-Red				=	\033[0;31m
-FRed			=	\033[1;31m
-Green			=	\033[0;32m
-FGreen			=	\033[1;32m
-Brown/Orange	=	\033[0;33m
-FBrown/Orange	=	\033[1;33m
-FYellow			=	\033[1;33m
-Yellow			=	\033[0;33m
-Blue			=	\033[0;34m
-FBlue			=	\033[1;34m
-Purple			=	\033[0;35m
-FPurple			=	\033[1;35m
-Cyan			=	\033[0;36m
-FCyan			=	\033[1;36m
-FWhite			=	\033[1;37m
-White			=	\033[0;37m
-NC				=	\033[0m
 
 OBJS	=	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
 
