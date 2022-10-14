@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
+#    By: pharbst <pharbst@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 23:06:25 by pharbst           #+#    #+#              #
-#    Updated: 2022/09/27 16:20:08 by pharbst          ###   ########.fr        #
+#    Updated: 2022/10/14 16:21:21 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,11 @@ OBJDIR	=	./obj
 
 BOBJDIR	=	./bobj
 
-FILES	=	main.c
+FILES	=	main.c\
+			ft_get_map.c\
+			ft_better_split.c\
+			ft_xtoi.c\
+			structprint.c\
 
 #BFILES	=
 
@@ -94,6 +98,7 @@ $(NAME):	OSTART $(OBJS) OEND
 	@echo "$(FPurple)linking $(DEPNAME) in $(NAME)...$(NC)"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -Llibft -lftio -LMLX42 -lmlx42 -I include -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/"
 
+
 #$(BNAME):	BOSTART $(BOBJS) BOEND
 #	@make -C ./libft
 #	@$(CC) $(CFLAGS) -o $(BNAME) -Llibft -lftio $(BOBJS)
@@ -134,6 +139,11 @@ fclean:
 	@printf "$(NC)"
 
 re:	rec fclean all rend
+
+reall:	rec fclean libftfclean all rend
+
+libftfclean:
+	@make fclean -C /libft
 
 rec:
 	@echo "$(FPurple)recompiling...$(NC)"

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 00:36:37 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/17 01:48:13 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/14 15:54:31 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,50 @@
 # define FDF_H
 
 # include "../MLX42/include/MLX42/MLX42.h"
+
 # include <memory.h>
 # include <libftio.h>
+# include <stdio.h>
 
-typedef	struct s_mapstruct
+//	union for pixel color
+typedef union s_pixel
 {
-	struct s_maplist	*up;
-	struct s_maplist	*down;
-	struct s_maplist	*rightdown;
-	struct s_maplist	*rightup;
-	struct s_maplist	*leftdown;
-	struct s_maplist	*leftup;
-	int					y_offset;
-}	t_mapstruct;
+	struct
+	{
+		char	r;
+		char	g;
+		char	b;
+		char	a;
+	};
+	unsigned int	pixel;
+}	t_pixel;
+
+typedef struct s_img
+{
+	const unsigned int	height;
+	const unsigned int	width;
+	int					count;
+	t_pixel				*pixel;
+	mlx_instance_t		*instance;
+	void				*context;
+}	t_img;
+
+typedef struct s_map
+{
+	struct s_map	*right;
+	struct s_map	*down;
+	struct s_map	*next;
+	t_pixel			color;
+	int				y;
+} t_map;
 
 # define WIDTH 2600
 # define HEIGHT 1600
 
-int		main(void);
+int		main(int argc, char **argv);
+char	**ft_better_split(char const *src, char c);
+t_map	*ft_get_map(int fd);
+long	ft_xtoi(char *src);
+void	ft_print_map(t_map *head);
 
 #endif
