@@ -80,11 +80,10 @@ char	**ft_better_split(char *src, char c)
 		return (NULL);
 	cache = ft_calloc(sizeof(char *) * (ft_getelen(src, c) + 1), 1);
 	if (!cache)
-		return (NULL);
+		return (free(src), NULL);
 	if (*src == '\0' && ft_strlen(src) == 0)
 		*cache = (NULL);
 	else
 		cache = ft_splitting(cache, src, c);
-	free(src);
-	return (cache);
+	return (free(src), cache);
 }

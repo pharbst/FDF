@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pharbst <pharbst@student.42.fr>            +#+  +:+       +#+         #
+#    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 23:06:25 by pharbst           #+#    #+#              #
-#    Updated: 2022/10/14 16:21:21 by pharbst          ###   ########.fr        #
+#    Updated: 2022/10/17 16:20:26 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,9 @@ FILES	=	main.c\
 			ft_better_split.c\
 			ft_xtoi.c\
 			structprint.c\
+			ft_set_pixel.c\
+			ft_get_map_size.c\
+			ft_better_trim.c\
 
 #BFILES	=
 
