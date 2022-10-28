@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 23:06:25 by pharbst           #+#    #+#              #
-#    Updated: 2022/10/28 13:05:28 by pharbst          ###   ########.fr        #
+#    Updated: 2022/10/28 16:06:50 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,7 @@ FILES	=	main.c\
 			ft_init_map_xz.c\
 			matrix_multiply.c\
 			ft_rotate.c\
+			ft_printmatrix.c\
 
 #BFILES	=
 

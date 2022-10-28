@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 00:36:37 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/28 14:12:42 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/28 16:16:30 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,19 +80,34 @@ typedef struct s_a
 	t_pixel				color;
 }t_a;
 
-int		main(int argc, char **argv);
+//betterlibft
 char	**ft_better_split(char *src, char c);
-t_map	*ft_get_map(int fd);
-long	ft_xtoi(char *src);
-void	ft_print_map(t_map *head);
-void	ft_set_pixel(unsigned int x, unsigned int y, t_img *img, unsigned int color);
-void	ft_get_map_size(t_a *a);
 char	*ft_better_trim(char *src, char *set);
+
+//debug
+void	ft_print_map(t_map *head);
+void	printmatrix(double **matrix);
+
+//drawing
+void	ft_set_pixel(unsigned int x, unsigned int y, t_img *img, unsigned int color);
 void 	draw(t_a *a);
-void	ft_init_map_xz(t_a *a);
-int		*ft_mat_multi(int **matrix, int *vector, double angel, char *flag);
-void	ft_rotate(char *flag, double angel, t_a *a);
+
+//image calc
+
+//main
+int		main(int argc, char **argv);
 void	ft_init_t_a(t_a *a);
 t_img	*ft_init_img(mlx_image_t *mlximg);
+
+//maptools
+t_map	*ft_get_map(int fd);
+void	ft_get_map_size(t_a *a);
+void	ft_init_map_xz(t_a *a);
+
+//tools
+long	ft_xtoi(char *src);
+double	*ft_mat_multi(double **matrix, double *vector);
+void	ft_rotate(char *flag, double angel, t_a *a);
+
 
 #endif
