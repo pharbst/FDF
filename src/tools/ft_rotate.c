@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_xtoi.c                                          :+:      :+:    :+:   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 16:22:46 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/22 16:55:00 by pharbst          ###   ########.fr       */
+/*   Created: 2022/10/28 12:46:14 by pharbst           #+#    #+#             */
+/*   Updated: 2022/10/28 15:12:29 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-long	ft_xtoi(char *src)
+void	ft_rotate(char *flag, double angel, t_a *a)
 {
-	long	ret;
+	t_map	*node;
+	double	**mat;
+	double	*vector;
+	double	*new_vec;
 
-	if (!src)
-		return(-1);
-	if (!*src)
-		return (0);
-	if (src[0] != '0' && (src[1] != 'x' || src[1] != 'X'))
-		return (-1);
-	src += 2;
-	ret = 0;
-	while (*src)
+	node = a->map;
+	if (strcmp(flag, "yaw") == 0)
+		mat = a->ry;
+	if (strcmp(flag, "pitch") == 0)
+		mat = a->rx;
+	if (strcmp(flag, "roll") == 0)
+		mat = a->rz;
+	while (node)
 	{
-		if (ft_isdigit(*src))
-			ret = (16 * ret) + (*src - '0');
-		else if (*src >= 'a' && *src <= 'f')
-			ret = (16 * ret) + (*src - ('a' - 10));
-		else if (*src >= 'A' && *src <= 'F')
-			ret = (16 * ret) + (*src - ('A' - 10));
-		src++;
+		vector[0] = node->x;
+		vector[1] = node->y;
+		vector[2] = node->z;
+		vector[3] = 1;
+		new_vec = ft_mat_multi(mat, vector, angel, flag);
+		node = node->next;
 	}
-	return (ret);
 }

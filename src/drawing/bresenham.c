@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:37:26 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/28 16:42:33 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/22 16:54:54 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fdf.h>
+#include "../../includes/fdf.h"
 #include <stdio.h>
 
 void	ft_fdx(t_lvar vars)

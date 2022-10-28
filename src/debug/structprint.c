@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_xtoi.c                                          :+:      :+:    :+:   */
+/*   structprint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 16:22:46 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/22 16:55:00 by pharbst          ###   ########.fr       */
+/*   Created: 2022/10/14 15:27:15 by pharbst           #+#    #+#             */
+/*   Updated: 2022/10/22 20:36:16 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-long	ft_xtoi(char *src)
+void	ft_print_map(t_map *head)
 {
-	long	ret;
+	int i = 1;
 
-	if (!src)
-		return(-1);
-	if (!*src)
-		return (0);
-	if (src[0] != '0' && (src[1] != 'x' || src[1] != 'X'))
-		return (-1);
-	src += 2;
-	ret = 0;
-	while (*src)
+	while (head)
 	{
-		if (ft_isdigit(*src))
-			ret = (16 * ret) + (*src - '0');
-		else if (*src >= 'a' && *src <= 'f')
-			ret = (16 * ret) + (*src - ('a' - 10));
-		else if (*src >= 'A' && *src <= 'F')
-			ret = (16 * ret) + (*src - ('A' - 10));
-		src++;
+		printf("node%i	", i);
+		printf("node= %p || next= %15p || right= %15p || down= %15p || color= %8x || x= %15f || y= %15f || z= %15f\n", head, head->next, head->right, head->down, head->color.pixel, head->x, head->y, head->z);
+		head = head->next;
+		i++;
 	}
-	return (ret);
 }

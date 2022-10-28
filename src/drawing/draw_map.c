@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structprint.c                                      :+:      :+:    :+:   */
+/*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 15:27:15 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/17 15:55:57 by pharbst          ###   ########.fr       */
+/*   Created: 2022/10/22 16:20:20 by pharbst           #+#    #+#             */
+/*   Updated: 2022/10/22 20:31:13 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-void	ft_print_map(t_map *head)
+void draw(t_a *a)
 {
-	int i = 1;
+	t_map	*node = a->map;
+	unsigned x = a->x;
+	unsigned z = a->z;
 
-	while (head)
+	while (node)
 	{
-		printf("node%i	", i);
-		printf("node= %p || next= %15p || right= %15p || down= %15p || color= %8x || y= %i\n", head, head->next, head->right, head->down, head->color.pixel, head->y);
-		head = head->next;
-		i++;
+			// node = node->down;
+		if (node->y == 2)
+			ft_set_pixel(x, z, a->img, 0XFFFFFFFF);
+		else
+			ft_set_pixel(x, z, a->img, a->color.pixel);
+		printf("%u |%u\n", x, z);
+		if (node->right)
+			x += a->i;
+		if (!node->right)
+			x -= (a->map_x - 1) * a->i;
+		if (!node->right)
+			z += a->i;
+		node = node->next;
 	}
+	
 }

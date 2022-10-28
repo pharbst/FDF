@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 23:06:25 by pharbst           #+#    #+#              #
-#    Updated: 2022/10/17 16:20:26 by pharbst          ###   ########.fr        #
+#    Updated: 2022/10/28 13:05:28 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,11 @@ FILES	=	main.c\
 			ft_set_pixel.c\
 			ft_get_map_size.c\
 			ft_better_trim.c\
+			draw_map.c\
+			init_t_a.c\
+			ft_init_map_xz.c\
+			matrix_multiply.c\
+			ft_rotate.c\
 
 #BFILES	=
 
@@ -65,23 +70,10 @@ OBJS	=	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
 #BOBJS	=	$(addprefix $(BOBJDIR)/, $(BFILES:.c=.o))
 
 all:	start $(NAME) end
-
+	./fdf ./maps/test3.fdf
 #bonus:	bstart $(BNAME) bend
 
 start:
-	@echo "            ################   ########                      ################"
-	@echo "           ################    ###########                  ################"
-	@echo "          #####                ####   ######               #####"
-	@echo "         #####                 ####     #####             #####"
-	@echo "        #####                  ####      ####            #####"
-	@echo "       ###############         ####       ####          ###############"
-	@echo "      ###############          ####       #####        ##############"
-	@echo "     #####                     ####       ####        #####"
-	@echo "    #####                      ####      #####       #####"
-	@echo "   #####                       ####     #####       #####"
-	@echo "  #####                        ####   #####        #####"
-	@echo " #####                         ##########         #####"
-	@echo "#####                          #######           #####"
 	@echo "$(FYellow)make $(NAME)...$(NC)"
 
 #bstart:
@@ -136,9 +128,7 @@ clean:
 fclean:
 	@echo "$(FRed)make flcean $(NAME)$(Red)"
 	rm -rf $(OBJDIR)
-#	rm -rf $(BOBJDIR)
 	rm -rf $(NAME)
-#	rm -rf $(BNAME)
 	@printf "$(NC)"
 
 re:	rec fclean all rend
