@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 23:29:48 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/28 16:17:57 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/28 18:38:58 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void	hook(void *param)
 	t_a	*a;
 
 	a = param;
-	
-	draw(a);
+
 	ft_keyhook(a);
-	// ft_recalculate(a);
+	ft_set_rot(a);
+	ft_img_calc(a);
 }
 
 void	ft_start(t_a *a)
@@ -81,7 +81,7 @@ int	main(int argc, char **argv)
 	ft_get_map_size(a);
 	ft_init_map_xz(a);
 	ft_print_map(a->map);
-	ft_rotate("yaw", 90, a);
+	ft_set_rot(a);
 	printf("\n\n\n");
 	ft_print_map(a->map);
 	free(a);

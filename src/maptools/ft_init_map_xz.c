@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 19:22:36 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/28 12:15:32 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/28 17:56:50 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ void	ft_init_map_xz(t_a *a)
 	while (node)
 	{
 		node->x = x;
+		node->a_x = x;
 		node->z = z;
+		node->a_z = z;
+		node->a_y = node->y;
 		if (node->right)
 			x += i;
 		else

@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_map.c                                         :+:      :+:    :+:   */
+/*   ft_img_calc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 16:20:20 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/22 20:31:13 by pharbst          ###   ########.fr       */
+/*   Created: 2022/10/28 18:00:07 by pharbst           #+#    #+#             */
+/*   Updated: 2022/10/28 18:29:37 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-void draw(t_a *a)
+void	ft_img_calc(t_a *a)
 {
-	t_map	*node = a->map;
-	unsigned x = a->x;
-	unsigned z = a->z;
+	t_map	*node;
 
+	node = a->map;
 	while (node)
 	{
-			// node = node->down;
-		if (node->y == 2)
-			ft_set_pixel(x, z, a->img, 0XFFFFFFFF);
-		else
-			ft_set_pixel(x, z, a->img, a->color.pixel);
-		printf("%u |%u\n", x, z);
-		if (node->right)
-			x += a->i;
-		if (!node->right)
-			x -= (a->map_x - 1) * a->i;
-		if (!node->right)
-			z += a->i;
+		node->img_x = a->img->width/2 + node->a_x;
+		node->img_y = a->img->height/2 + (-node->a_y);
 		node = node->next;
 	}
-	
+	node = a->map;
+	while (node)
+	{
+		if (node->right)
+			ft_draw_line(node->img_x, node->right->img_x, node->img_y, node->right->img_y);
+		if (node->down)
+			ft_draw_line(node->img_x, node->down->img_x, node->img_y, node->down->img_y);
+		node = node->next;
+	}
 }

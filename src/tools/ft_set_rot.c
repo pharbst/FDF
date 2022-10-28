@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structprint.c                                      :+:      :+:    :+:   */
+/*   ft_set_rot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 15:27:15 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/28 17:54:08 by pharbst          ###   ########.fr       */
+/*   Created: 2022/10/28 17:46:48 by pharbst           #+#    #+#             */
+/*   Updated: 2022/10/28 17:54:42 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-void	ft_print_map(t_map *head)
+void	ft_set_rot(t_a *a)
 {
-	int i = 1;
-
-	while (head)
-	{
-		printf("node%i	", i);
-		printf("node= %p || next= %15p || right= %15p || down= %15p || color= %8x || x= %15f || y= %15f || z= %15f || a_x= %15f || a_y= %15f || a_z= %15f\n", head, head->next, head->right, head->down, head->color.pixel, head->x, head->y, head->z, head->a_x, head->a_y, head->a_z);
-		head = head->next;
-		i++;
-	}
+	ft_rotate("roll", a);
+	ft_rotate("yaw", a);
+	ft_rotate("pitch", a);
+	//ft_translate(a);
 }

@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 23:06:25 by pharbst           #+#    #+#              #
-#    Updated: 2022/10/28 16:06:50 by pharbst          ###   ########.fr        #
+#    Updated: 2022/10/28 18:37:07 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,12 +57,14 @@ FILES	=	main.c\
 			ft_set_pixel.c\
 			ft_get_map_size.c\
 			ft_better_trim.c\
-			draw_map.c\
 			init_t_a.c\
 			ft_init_map_xz.c\
 			matrix_multiply.c\
 			ft_rotate.c\
 			ft_printmatrix.c\
+			ft_set_rot.c\
+			ft_img_calc.c\
+			bresenham.c\
 
 #BFILES	=
 

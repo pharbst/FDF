@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 12:46:14 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/28 16:51:09 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/28 17:51:04 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static double	**ft_roll(double **matrix, double angel)
 	return (matrix);
 }
 
-void	ft_rotate(char *flag, double angel, t_a *a)
+void	ft_rotate(char *flag, t_a *a)
 {
 	t_map	*node;
 	double	**mat;
@@ -48,25 +48,25 @@ void	ft_rotate(char *flag, double angel, t_a *a)
 
 	vector = ft_calloc(4, sizeof(double));
 	new_vec = ft_calloc(4, sizeof(double));
-	node = a->map;
 	if (strcmp(flag, "yaw") == 0)
-		mat = ft_yaw(a->ry, angel);
+		mat = ft_yaw(a->ry, a->beta);
 	if (strcmp(flag, "pitch") == 0)
-		mat = ft_pitch(a->rx, angel);
+		mat = ft_pitch(a->rx, a->gamma);
 	if (strcmp(flag, "roll") == 0)
-		mat = ft_roll(a->rz, angel);
-	printmatrix(mat);
+		mat = ft_roll(a->rz, a->alpha);
+	// printmatrix(mat);
+	node = a->map;
 	while (node)
 	{
-		vector[0] = node->x;
-		vector[1] = node->y;
-		vector[2] = node->z;
+		vector[0] = node->a_x;
+		vector[1] = node->a_y;
+		vector[2] = node->a_z;
 		vector[3] = 1;
 		new_vec = ft_mat_multi(mat, vector);
-		printf("vector=%f|%f|%f\nnew_vec=%f|%f|%f\n", vector[0], vector[1], vector[2], new_vec[0], new_vec[1], new_vec[2]);
-		node->x = new_vec[0];
-		node->y = new_vec[1];
-		node->z = new_vec[2];
+		// printf("vector=%f|%f|%f\nnew_vec=%f|%f|%f\n", vector[0], vector[1], vector[2], new_vec[0], new_vec[1], new_vec[2]);
+		node->a_x = new_vec[0];
+		node->a_y = new_vec[1];
+		node->a_z = new_vec[2];
 		node = node->next;
 	}
 }

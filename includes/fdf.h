@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 00:36:37 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/28 16:16:30 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/28 18:37:37 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,25 +54,37 @@ typedef struct s_map
 	double				x;
 	double				y;
 	double				z;
+	double				a_x;
+	double				a_y;
+	double				a_z;
 	unsigned int		img_x;
-	unsigned int		img_z;
+	unsigned int		img_y;
 } t_map;
+
+typedef struct s_bre
+{
+	int				x0;
+	int				x1;
+	int				y0;
+	int				y1;
+	unsigned int	dx;
+	unsigned int	dy;
+	double			f;
+	unsigned int	fd;
+	unsigned int	sd;
+} t_bre;
 
 typedef struct s_a
 {
 	const unsigned int	map_x;
 	const unsigned int	map_z;
-	unsigned int		i;
-	unsigned int		j;
-	unsigned int		x;
-	unsigned int		z;
 	int					fd;
-	int					roll;
-	int					pitch;
-	int					yaw;
 	double				**rx;		//roll
 	double				**ry;		//yaw
 	double				**rz;		//pitch
+	double				alpha;		//roll
+	double				beta;		//yaw
+	double				gamma;		//roll
 	mlx_t 				*mlx;
 	mlx_image_t			*mlximg;
 	t_img		 		*img;
@@ -88,11 +100,12 @@ char	*ft_better_trim(char *src, char *set);
 void	ft_print_map(t_map *head);
 void	printmatrix(double **matrix);
 
-//drawing
+//image calc
 void	ft_set_pixel(unsigned int x, unsigned int y, t_img *img, unsigned int color);
 void 	draw(t_a *a);
-
-//image calc
+void	ft_img_calc(t_a *a);
+void	ft_draw_line(unsigned int x0, unsigned int x1, unsigned int y0,
+					unsigned int y1);
 
 //main
 int		main(int argc, char **argv);
@@ -107,7 +120,8 @@ void	ft_init_map_xz(t_a *a);
 //tools
 long	ft_xtoi(char *src);
 double	*ft_mat_multi(double **matrix, double *vector);
-void	ft_rotate(char *flag, double angel, t_a *a);
+void	ft_rotate(char *flag, t_a *a);
+void	ft_set_rot(t_a *a);
 
 
 #endif
