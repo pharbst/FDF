@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 12:46:14 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/28 17:51:04 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/29 14:08:17 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,5 @@ void	ft_rotate(char *flag, t_a *a)
 		node->a_z = new_vec[2];
 		node = node->next;
 	}
+	return (free(vector), free(new_vec)); 
 }

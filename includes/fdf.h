@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 00:36:37 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/28 18:37:37 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/29 15:28:14 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,7 @@ void	printmatrix(double **matrix);
 void	ft_set_pixel(unsigned int x, unsigned int y, t_img *img, unsigned int color);
 void 	draw(t_a *a);
 void	ft_img_calc(t_a *a);
-void	ft_draw_line(unsigned int x0, unsigned int x1, unsigned int y0,
-					unsigned int y1);
+void	ft_draw_line(unsigned int *vector1, unsigned int *vector2, t_a *a);
 
 //main
 int		main(int argc, char **argv);
@@ -122,6 +121,7 @@ long	ft_xtoi(char *src);
 double	*ft_mat_multi(double **matrix, double *vector);
 void	ft_rotate(char *flag, t_a *a);
 void	ft_set_rot(t_a *a);
+void	ft_exit(t_a *a);
 
 
 #endif

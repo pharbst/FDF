@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 19:22:36 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/28 17:56:50 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/29 14:06:15 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,10 @@ void	ft_init_map_xz(t_a *a)
 	double	z;
 
 	node = a->map;
-	printf("hier\n");
 	if (a->map_x > a->map_z)
 	{
 		i = 1000.0 / (a->map_x - 1);
 		z = -(a->map_z - 1.0) / 2 * i;
-		printf("%f\n", z);
 		x = -500.0;
 	}
 	else
@@ -34,7 +32,6 @@ void	ft_init_map_xz(t_a *a)
 		z = -500.0;
 		x = -(a->map_x - 1.0) / 2 * i;
 	}
-	printf("init coords|%f|%f|\n", x, z);
 	while (node)
 	{
 		node->x = x;

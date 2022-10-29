@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 16:40:07 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/28 18:40:12 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/29 15:29:56 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,15 @@ void	ft_init_t_a(t_a *a)
 	a->rz[3][3] = 1;
 	a->mlx = mlx_init(WIDTH, HEIGHT, "FDF", true);
 	if (!a->mlx)
-		exit(ft_exit(a));
+	{
+		ft_exit(a);
+		exit(1);
+	}
 	a->mlximg = mlx_new_image(a->mlx, WIDTH, HEIGHT);
 	a->img = ft_init_img(a->mlximg);
 	if (!a->img)
-		exit(ft_exit(a));
+	{
+		ft_exit(a);
+		exit(0);
+	}
 }

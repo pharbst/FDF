@@ -6,32 +6,32 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 23:29:48 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/28 18:38:58 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/29 15:39:21 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 #include "../../MLX42/include/MLX42/MLX42.h"
 
-void	ft_keyhook(t_a *a)
-{
-	if (mlx_is_key_down(a->mlx, MLX_KEY_A))
-		a->color.r++;
-	if (mlx_is_key_down(a->mlx, MLX_KEY_S))
-		a->color.r--;
-	if (mlx_is_key_down(a->mlx, MLX_KEY_D))
-		a->color.b++;
-	if (mlx_is_key_down(a->mlx, MLX_KEY_F))
-		a->color.b--;
-	if (mlx_is_key_down(a->mlx, MLX_KEY_G))
-		a->color.g++;
-	if (mlx_is_key_down(a->mlx, MLX_KEY_H))
-		a->color.g--;
-	if (mlx_is_key_down(a->mlx, MLX_KEY_J))
-		a->color.a++;
-	if (mlx_is_key_down(a->mlx, MLX_KEY_K))
-		a->color.a--;
-}
+// void	ft_keyhook(t_a *a)
+// {
+// 	if (mlx_is_key_down(a->mlx, MLX_KEY_A))
+// 		a->color.r++;
+// 	if (mlx_is_key_down(a->mlx, MLX_KEY_S))
+// 		a->color.r--;
+// 	if (mlx_is_key_down(a->mlx, MLX_KEY_D))
+// 		a->color.b++;
+// 	if (mlx_is_key_down(a->mlx, MLX_KEY_F))
+// 		a->color.b--;
+// 	if (mlx_is_key_down(a->mlx, MLX_KEY_G))
+// 		a->color.g++;
+// 	if (mlx_is_key_down(a->mlx, MLX_KEY_H))
+// 		a->color.g--;
+// 	if (mlx_is_key_down(a->mlx, MLX_KEY_J))
+// 		a->color.a++;
+// 	if (mlx_is_key_down(a->mlx, MLX_KEY_K))
+// 		a->color.a--;
+// }
 
 void	hook(void *param)
 {
@@ -39,7 +39,7 @@ void	hook(void *param)
 
 	a = param;
 
-	ft_keyhook(a);
+	// ft_keyhook(a);
 	ft_set_rot(a);
 	ft_img_calc(a);
 }
@@ -48,11 +48,14 @@ void	ft_start(t_a *a)
 {
 	a->map = ft_get_map(a->fd);
 	close(a->fd);
+	ft_get_map_size(a);
+	ft_init_map_xz(a);
+	ft_set_rot(a);
+	
 	
 	// debug
 	ft_print_map(a->map);
 
-	ft_get_map_size(a);
 
 	// debug
 	printf("x= %u | z= %u\n", a->map_x, a->map_z);
@@ -75,23 +78,24 @@ int	main(int argc, char **argv)
 	ft_init_t_a(a);
 	a->fd = open(argv[1], O_RDONLY);
 	if (a->fd == -1)
-		return (free(a), 0);
+		return (ft_exit(a), 0);
 
-	a->map = ft_get_map(a->fd);
-	ft_get_map_size(a);
-	ft_init_map_xz(a);
-	ft_print_map(a->map);
-	ft_set_rot(a);
-	printf("\n\n\n");
-	ft_print_map(a->map);
-	free(a);
-	// ft_init_t_a(a);
-	// ft_start(&a);
+	// a->map = ft_get_map(a->fd);
+	// ft_get_map_size(a);
+	// ft_init_map_xz(a);
+	// ft_print_map(a->map);
+	// ft_set_rot(a);
+	// printf("\n\n\n");
+	// ft_print_map(a->map);
+	// free(a);
 
-	// mlx_image_to_window(a->mlx, a->mlximg, 0, 0);
-	// mlx_loop_hook(a->mlx, &hook, &a);
-	// mlx_loop(a->mlx);
-	// mlx_terminate(a->mlx);
-	// return (EXIT_SUCCESS);
-	return (0);
+	a->alpha = 30;
+	a->beta = 30;
+	ft_start(a);
+
+	mlx_image_to_window(a->mlx, a->mlximg, 0, 0);
+	mlx_loop_hook(a->mlx, &hook, &a);
+	mlx_loop(a->mlx);
+	mlx_terminate(a->mlx);
+	return (ft_exit(a), 0);
 }

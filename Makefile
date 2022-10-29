@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 23:06:25 by pharbst           #+#    #+#              #
-#    Updated: 2022/10/28 18:37:07 by pharbst          ###   ########.fr        #
+#    Updated: 2022/10/29 15:28:24 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,7 @@ FILES	=	main.c\
 			ft_set_rot.c\
 			ft_img_calc.c\
 			bresenham.c\
+			ft_exit.c\
 
 #BFILES	=
 
