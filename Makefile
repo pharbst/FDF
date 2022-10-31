@@ -6,10 +6,12 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 23:06:25 by pharbst           #+#    #+#              #
-#    Updated: 2022/10/29 15:28:24 by pharbst          ###   ########.fr        #
+#    Updated: 2022/10/29 19:47:46 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# -ldl -lglfw -pthread -lm
+# -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/"
 
 SHELL=	/bin/bash
 

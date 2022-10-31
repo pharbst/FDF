@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 01:31:43 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/22 16:55:11 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/29 15:47:05 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,12 @@ t_map	*ft_get_map(int fd)
 	t_map			*topnode;
 	char			**line;
 	char			**var;
-	bool			flag;
 
 	node = NULL;
 	next = NULL;
 	topnode = NULL;
 	head = NULL;
 	var = NULL;
-	flag = 1;
 
 	line = ft_better_split(ft_better_trim(get_next_line(fd), " \t\v\f\n\r"), ' ');
 	if (!line)
