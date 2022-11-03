@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 17:46:48 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/28 17:54:42 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/02 19:17:06 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_set_rot(t_a *a)
 {
 	ft_rotate("roll", a);
-	ft_rotate("yaw", a);
 	ft_rotate("pitch", a);
+	ft_rotate("yaw", a);
 	//ft_translate(a);
 }

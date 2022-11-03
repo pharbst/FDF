@@ -1,161 +1,122 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/16 23:06:25 by pharbst           #+#    #+#              #
-#    Updated: 2022/10/29 19:47:46 by pharbst          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+CC			=	cc
+CFLAGS		=	#-Wall -Wextra -Werror
 
-# -ldl -lglfw -pthread -lm
-# -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/"
+LINUX_FLAGS	=	-ldl -lglfw -lm -I /MLX42/include/MLX42
 
-SHELL=	/bin/bash
+UNAME		=	$(shell uname)
+OS			=	$(shell cat /etc/os-release | grep -e NAME | cut -d= -f2 | tr -d '"')
+OS_LIKE		=	$(shell cat /etc/os-release | grep ID_LIKE | cut -d= -f2)
 
-Black			=	$(shell echo -e "\033[0;30m")
-FBlack			=	$(shell echo -e "\033[1;30m")
-Red				=	$(shell echo -e "\033[0;31m")
-FRed			=	$(shell echo -e "\033[1;31m")
-Green			=	$(shell echo -e "\033[0;32m")
-FGreen			=	$(shell echo -e "\033[1;32m")
-Brown/Orange	=	$(shell echo -e "\033[0;33m")
-FBrown/Orange	=	$(shell echo -e "\033[1;33m")
-FYellow			=	$(shell echo -e "\033[1;33m")
-Yellow			=	$(shell echo -e "\033[0;33m")
-Blue			=	$(shell echo -e "\033[0;34m")
-FBlue			=	$(shell echo -e "\033[1;34m")
-Purple			=	$(shell echo -e "\033[0;35m")
-FPurple			=	$(shell echo -e "\033[1;35m")
-Cyan			=	$(shell echo -e "\033[0;36m")
-FCyan			=	$(shell echo -e "\033[1;36m")
-FWhite			=	$(shell echo -e "\033[1;37m")
-White			=	$(shell echo -e "\033[0;37m")
-NC				=	$(shell echo -e "\033[0m")
+BOLD		=	$(shell echo -e "\033[1m")
+BLACK		=	$(shell echo -e "\033[30;1m")
+RED			=	$(shell echo -e "\033[31;1m")
+GREEN		=	$(shell echo -e "\033[32;1m")
+YELLOW		=	$(shell echo -e "\033[33;1m")
+BLUE		=	$(shell echo -e "\033[34;1m")
+MAGENTA		=	$(shell echo -e "\033[35;1m")
+CYAN		=	$(shell echo -e "\033[36;1m")
+WHITE		=	$(shell echo -e "\033[37;1m")
+RESET		=	$(shell echo -e "\033[0m")
 
-NAME	=	fdf
+SRC_DIR		=	src/
+OBJ_DIR		=	obj/
+LIB_DIR		=	libft/
+INC_DIR		=	includes/
+MLX42		=	MLX42/
 
-DEPNAME	=	libftio, mlx42
+GLFW_DIR	=	/Users/$(USER)/.brew/opt/glfw/lib/
+BREW_FILE	=	/Users/$(USER)/.brewconfig.zsh
 
-#BNAME	=
+LIBFT		=	$(LIB_DIR)libftio.a
+MLX			=	$(MLX42)libmlx42.a
+LIB_GLFW	=	-lglfw
 
-CC		=	cc
+INC_LIB		=	-I$(LIB_DIR)
+INC_SRC		=	-I$(INC_DIR)
+INC_MLX		=	-I$(MLX42)include/MLX42
 
-CFLAGS	=	-Wall -Wextra -Werror -I includes -I libft/includes -g		#-g flag is for debugging remove it to compile faster
+SRC_NAME	=	ft_better_split.c\
+				ft_better_trim.c\
+				ft_printmatrix.c\
+				structprint.c\
+				bresenham.c\
+				ft_img_calc.c\
+				ft_set_pixel.c\
+				init_t_a.c\
+				main.c\
+				ft_get_map_size.c\
+				ft_get_map.c\
+				ft_init_map_xz.c\
+				ft_exit.c\
+				ft_rotate.c\
+				ft_set_rot.c\
+				ft_xtoi.c\
+				matrix_multiply.c\
 
-SRCDIR	=	./src
+OBJ_NAME	=	$(SRC_NAME:.c=.o)
+OBJ			=	$(addprefix $(OBJ_DIR),$(OBJ_NAME))
+SRC			=	$(addprefix $(SRC_DIR),$(SRC_NAME))
 
-OBJDIR	=	./obj
+NAME		=	fdf
 
-BOBJDIR	=	./bobj
+all: $(NAME)
 
-FILES	=	main.c\
-			ft_get_map.c\
-			ft_better_split.c\
-			ft_xtoi.c\
-			structprint.c\
-			ft_set_pixel.c\
-			ft_get_map_size.c\
-			ft_better_trim.c\
-			init_t_a.c\
-			ft_init_map_xz.c\
-			matrix_multiply.c\
-			ft_rotate.c\
-			ft_printmatrix.c\
-			ft_set_rot.c\
-			ft_img_calc.c\
-			bresenham.c\
-			ft_exit.c\
+$(OBJ_DIR)%.o: $(SRC_DIR)*/%.c
+	@mkdir -p $(OBJ_DIR)
+	@echo "$(BLUE)Compiling: $(RESET) $<"
+	@$(CC) $(CFLAGS) -o $@ -c $^ $(INC_LIB) $(INC_MLX)
 
-#BFILES	=
+$(NAME): dependencies $(LIBFT) $(MLX) $(OBJ)
+ifeq ($(UNAME), Linux)
+	@$(CC) $(CFLAGS) $(OBJ) $(MLX) $(INC_GLFW) $(LIB_GLFW) -L $(GLFW_DIR) -L $(LIB_DIR) -lftio $(LINUX_FLAGS) -o $(NAME)
+else ifeq ($(UNAME), Darwin)
+	@$(CC) $(CFLAGS) $(OBJ) $(MLX) $(INC_GLFW) $(LIB_GLFW) -L $(GLFW_DIR) -L $(LIB_DIR) -lftio -framework Cocoa -framework OpenGL -framework IOKit -o $(NAME)
+else
+	echo "$(RED)OS ($(UNAME)) not supported$(RESET)"
+endif
+	@echo "$(GREEN)Done$(RESET)"
 
-OBJS	=	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
+$(LIBFT):
+	make -C $(LIB_DIR)
 
-#BOBJS	=	$(addprefix $(BOBJDIR)/, $(BFILES:.c=.o))
+$(MLX):
+	make -C $(MLX42)
 
-all:	start $(NAME) end
-	./fdf ./maps/test3.fdf
-#bonus:	bstart $(BNAME) bend
+dependencies:
+	@echo "$(YELLOW)Checking dependencies...$(RESET)"
+ifeq ($(UNAME), Darwin)
+	@echo "$(YELLOW)Check for $(UNAME)...$(RESET)"
+	@make $(BREW_FILE)
+	@make $(GLFW_DIR)
+else ifeq ($(UNAME), Linux)
+	@echo "$(YELLOW)Check for $(UNAME)...$(RESET)"
+ifeq ($(OS_LIKE), debian)
+	@apt -y install build-essential libx11-dev libglfw3-dev libglfw3 xorg-dev
+else ifeq ($(OS_LIKE), arch)
+	@sudo pacman -S --noconfirm glfw-x11
+else
+	@echo "$(RED)Your OS ($(OS_LIKE))is not supported$(RESET)"
+endif
+endif
 
-start:
-	@echo "$(FYellow)make $(NAME)...$(NC)"
+	@echo "$(GREEN)Done$(RESET)"
 
-#bstart:
-#	@echo "$(FYellow)make $(BNAME)...$(NC)"
+$(GLFW_DIR) :
+	@echo "$(MAGENTA) ----- INSTALLING GLFW ----- $(RESET)"
+	brew install glfw3
+	brew install glfw
 
-end:
-	@echo "$(FGreen)$(NAME) done$(NC)"
-
-#bend:
-#	@echo "$(Green)$(BNAME) done$(NC)"
-
-$(NAME):	OSTART $(OBJS) OEND
-	@echo "$(FWhite)dependencie $(DEPNAME) needed$(NC)"
-	@make -C ./libft
-	@make -C ./MLX42
-#	@cp libft/libft.a $(NAME)
-	@echo "$(FPurple)linking $(DEPNAME) in $(NAME)...$(NC)"
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -Llibft -lftio -LMLX42 -lmlx42 -I include -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/"
-
-
-#$(BNAME):	BOSTART $(BOBJS) BOEND
-#	@make -C ./libft
-#	@$(CC) $(CFLAGS) -o $(BNAME) -Llibft -lftio $(BOBJS)
-
-$(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/fdf.h
-	@mkdir -p $(OBJDIR)
-	@$(CC) $(CFLAGS) -o $@ -c $<
-	@printf  "$(NC)$@; "
-
-#$(BOBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/checker.h
-#	@mkdir -p $(BOBJDIR)
-#	@$(CC) $(CFLAGS) -o $@ -c $<
-#	@printf "$(NC)$@; "
-
-OSTART:
-	@echo "$(Blue)creating object files...$(NC)"
-#BOSTART:
-#	@echo "$(Blue)creating object files...$(NC)"
-
-OEND:
-	@echo ""
-	@echo "$(Green)object files created$(NC)"
-#BOEND:
-#	@echo ""
-#	@echo "$(Green)object files created$(NC)"
+$(BREW_FILE):
+	@echo "$(MAGENTA) ----- INSTALLING BREW ----- $(RESET)"
+	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 clean:
-	@echo "$(FRed)make clean $(NAME)$(Red)"
-	rm -rf $(OBJDIR)
-#	rm -rf $(BOBJDIR)
+	rm -rf $(OBJ_DIR)
+	make clean -C $(LIB_DIR)
 
-fclean:
-	@echo "$(FRed)make flcean $(NAME)$(Red)"
-	rm -rf $(OBJDIR)
-	rm -rf $(NAME)
-	@printf "$(NC)"
+fclean: clean
+	rm -f $(NAME) $(NAME_BONUS)
+	make fclean -C $(LIB_DIR)
+	make fclean -C $(MLX42)
 
-re:	rec fclean all rend
-
-reall:	rec fclean libftfclean all rend
-
-libftfclean:
-	@make fclean -C /libft
-
-rec:
-	@echo "$(FPurple)recompiling...$(NC)"
-
-rend:
-	@echo "$(FGreen)recompiled$(NC)"
-
-git:	commit push
-
-commit:
-	git commit -m "$(msg)"
-
-push:
-	git push -u
-
-.PHONY:	all bonus clean fclean re OSTART OEND rend rec"
+re: fclean all $(MLX)

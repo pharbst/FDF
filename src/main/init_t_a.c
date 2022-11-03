@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 16:40:07 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/29 15:29:56 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/02 19:22:33 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	ft_init_t_a(t_a *a)
 		a->rz[i] = ft_calloc(4, sizeof(double));
 		i++;
 	}
+	printf("%p >> innit\n", &a->rz[0][0]);
 	a->rx[0][0] = 1;
 	a->rx[3][3] = 1;
 	a->ry[1][1] = 1;

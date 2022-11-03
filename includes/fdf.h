@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 00:36:37 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/29 15:28:14 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/02 20:14:36 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../MLX42/include/MLX42/MLX42.h"
 
 # include <memory.h>
-# include <libftio.h>
+# include "libftio.h"
 # include <stdio.h>
 # include <math.h>
 
@@ -67,8 +67,8 @@ typedef struct s_bre
 	int				x1;
 	int				y0;
 	int				y1;
-	unsigned int	dx;
-	unsigned int	dy;
+	int				dx;
+	int				dy;
 	double			f;
 	unsigned int	fd;
 	unsigned int	sd;
@@ -104,7 +104,7 @@ void	printmatrix(double **matrix);
 void	ft_set_pixel(unsigned int x, unsigned int y, t_img *img, unsigned int color);
 void 	draw(t_a *a);
 void	ft_img_calc(t_a *a);
-void	ft_draw_line(unsigned int *vector1, unsigned int *vector2, t_a *a);
+void	ft_draw_line(int *vector1,  int *vector2, t_a *a);
 
 //main
 int		main(int argc, char **argv);

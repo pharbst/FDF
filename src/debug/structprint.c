@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:27:15 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/28 17:54:08 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/02 20:22:17 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ void	ft_print_map(t_map *head)
 		head = head->next;
 		i++;
 	}
+	printf("\n\n\n");
 }
