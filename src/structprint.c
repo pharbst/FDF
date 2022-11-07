@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_map_size.c                                  :+:      :+:    :+:   */
+/*   structprint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 15:15:16 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/22 20:30:49 by pharbst          ###   ########.fr       */
+/*   Created: 2022/10/14 15:27:15 by pharbst           #+#    #+#             */
+/*   Updated: 2022/11/07 10:22:10 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-void	ft_get_map_size(t_a *a)
+void	ft_print_map(t_map *head)
 {
-	unsigned int	i;
-	unsigned int	j;
-	t_map			*head;
+	int i = 1;
 
-	head = a->map;
-
-	i = 1;
-	j = 1;
-	while (head->right)
+	while (head)
 	{
-		i++;
+		printf("node%i	", i);
+		printf("color= %12u || x= %15f || y= %15f || z= %15f || a_x= %15f || a_y= %15f || a_z= %15f || img_x %11u || img_y %11u\n", head->color.pixel, head->x, head->y, head->z, head->a_x, head->a_y, head->a_z, head->img_x, head->img_y);
 		head = head->next;
+		i++;
 	}
-	if ((head = head->next))
-		j++;
-	while (head->down)
-	{
-		j++;
-		head = head->down;
-	}
-	(*(unsigned int *) &a->map_x) = i;
-	(*(unsigned int *) &a->map_z) = j;
+	printf("\n\n\n");
 }

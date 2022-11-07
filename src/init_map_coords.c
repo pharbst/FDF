@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_map_xz.c                                   :+:      :+:    :+:   */
+/*   init_map_coords.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 19:22:36 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/29 14:06:15 by pharbst          ###   ########.fr       */
+/*   Created: 2022/11/03 16:26:00 by pharbst           #+#    #+#             */
+/*   Updated: 2022/11/03 16:26:38 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-void	ft_init_map_xz(t_a *a)
+void	init_map_coords(t_a *a)
 {
 	t_map			*node;
 	double	i;

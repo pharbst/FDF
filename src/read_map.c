@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_map.c                                       :+:      :+:    :+:   */
+/*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/17 01:31:43 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/29 15:47:05 by pharbst          ###   ########.fr       */
+/*   Created: 2022/11/03 15:35:18 by pharbst           #+#    #+#             */
+/*   Updated: 2022/11/03 16:24:44 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	ft_clear(t_map *head, char **line, char **var)
 		ft_free_split(var);
 }
 
-t_map	*ft_get_map(int fd)
+t_map	*read_map(int fd)
 {
 	unsigned int	i;
 	t_map			*head;

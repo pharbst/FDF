@@ -1,66 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_t_a.c                                         :+:      :+:    :+:   */
+/*   init_matrix.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 16:40:07 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/02 19:22:33 by pharbst          ###   ########.fr       */
+/*   Created: 2022/11/02 17:14:11 by pharbst           #+#    #+#             */
+/*   Updated: 2022/11/02 17:15:02 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-t_img	*ft_init_img(mlx_image_t *mlximg)
+static void	alloc_matrix(t_a *a)
 {
-	t_img	*img;
-
-	img = ft_calloc(1, sizeof(t_img));
-	if (!img)
-		return (NULL);
-	(*(unsigned int *)&img->width) = mlximg->width;
-	(*(unsigned int *)&img->height) = mlximg->height;
-	img->count = mlximg->count;
-	img->pixel = (t_pixel *)mlximg->pixels;
-	img->instances = mlximg->instances;
-	img->context = mlximg->context;
-	return (img);
-}
-
-void	ft_init_t_a(t_a *a)
-{
-	int i;
+	int	i;
 
 	i = 0;
 	a->rx = ft_calloc(4, sizeof(double *));
+	if (!a->rx)
+		ft_exit(a);
 	a->ry = ft_calloc(4, sizeof(double *));
+	if (!a->ry)
+		ft_exit(a);
 	a->rz = ft_calloc(4, sizeof(double *));
+	if (!a->rz)
+		ft_exit(a);
 	while (i < 4)
 	{
 		a->rx[i] = ft_calloc(4, sizeof(double));
+		if (!a->rx[i])
+			ft_exit(a);
 		a->ry[i] = ft_calloc(4, sizeof(double));
+		if (!a->ry[i])
+			ft_exit(a);
 		a->rz[i] = ft_calloc(4, sizeof(double));
+		if (!a->rz[i])
+			ft_exit(a);
 		i++;
 	}
-	printf("%p >> innit\n", &a->rz[0][0]);
+}
+
+void	init_matrix(t_a *a)
+{
+	alloc_matrix(a);
 	a->rx[0][0] = 1;
 	a->rx[3][3] = 1;
 	a->ry[1][1] = 1;
 	a->ry[3][3] = 1;
 	a->rz[2][2] = 1;
 	a->rz[3][3] = 1;
-	a->mlx = mlx_init(WIDTH, HEIGHT, "FDF", true);
-	if (!a->mlx)
-	{
-		ft_exit(a);
-		exit(1);
-	}
-	a->mlximg = mlx_new_image(a->mlx, WIDTH, HEIGHT);
-	a->img = ft_init_img(a->mlximg);
-	if (!a->img)
-	{
-		ft_exit(a);
-		exit(0);
-	}
 }

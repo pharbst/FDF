@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit.c                                          :+:      :+:    :+:   */
+/*   map_size.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 13:52:12 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/29 14:00:54 by pharbst          ###   ########.fr       */
+/*   Created: 2022/11/03 15:43:48 by pharbst           #+#    #+#             */
+/*   Updated: 2022/11/03 15:44:41 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-void	ft_exit(t_a *a)
+void	map_size(t_a *a)
 {
-	int	i;
+	unsigned int	i;
+	unsigned int	j;
+	t_map			*head;
 
-	i = -1;
-	if (a->rx)
-		while (++i < 4)
-			free(a->rx[i]);
-	i = -1;
-	if (a->ry)
-		while (++i < 4)
-			free(a->ry[i]);
-	i = -1;
-	if (a->rz)
-		while (++i < 4)
-			free(a->rz[i]);
-	if (a->rx)
-		free(a->rx);
-	if (a->ry)
-		free(a->ry);
-	if(a->rz)
-		free(a->rz);
-	if (a->img)
-		free(a->img);
-	free(a);
+	head = a->map;
+
+	i = 1;
+	j = 1;
+	while (head->right)
+	{
+		i++;
+		head = head->next;
+	}
+	if ((head = head->next))
+		j++;
+	while (head->down)
+	{
+		j++;
+		head = head->down;
+	}
+	(*(unsigned int *) &a->map_x) = i;
+	(*(unsigned int *) &a->map_z) = j;
 }

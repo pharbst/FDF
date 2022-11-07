@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:00:07 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/02 19:34:50 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/06 20:30:51 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_img_calc(t_a *a)
 			vector1[1] = node->img_x;
 			vector2[0] = node->right->img_x;
 			vector2[1] = node->right->img_y;
-			ft_draw_line(vector1, vector2, a);
+			// ft_draw_line(vector1, vector2, a);
 		}
 		if (node->down)
 		{
