@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 18:49:51 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/07 12:52:54 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/07 17:39:26 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,21 @@ int	main(int argc, char **argv)
 	map_size(a);
 	init_map_coords(a);
 	ft_print_map(a->map);
-	printf("Done\n");
-	a->gamma = -90;
+	a->gamma = -45;
+	a->beta = 45;
+	ft_rotate("yaw", a);
+	ft_print_map(a->map);
 	ft_rotate("pitch", a);
 	ft_print_map(a->map);
 	get_img_coords(a);
 	ft_print_map(a->map);
 	ft_img_calc(a);
+	// ft_draw_line((unsigned int[2]){30, 600}, (unsigned int[2]){10, 492}, a);
+	// ft_set_pixel(10, 492, a->img, 0XFFFF00FF);
+	// ft_set_pixel(57, 492, a->img, 0XFFFF00FF);
+	// ft_set_pixel(104, 492, a->img, 0XFFFF00FF);
+	// ft_set_pixel(57, 42, a->img, 0XFFFF00FF);
+	// ft_set_pixel(500, 500, a->img, 0XFFFF00FF);
 	
 
 
