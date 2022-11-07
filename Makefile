@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 13:40:02 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/07 10:27:25 by pharbst          ###   ########.fr        #
+#    Updated: 2022/11/07 12:44:39 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ OS_LIKE		=	$(shell cat /etc/os-release | grep ID_LIKE | cut -d= -f2)
 # Compiler
 CC			=	cc
 # CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS			+=	-g
 LINUX_FLAGS	=	-ldl -lglfw -lm
 
 # Project
@@ -36,6 +37,7 @@ SRC_NAME	=	additionnal_keys.c \
 				ft_rotate.c \
 				ft_set_pixel.c \
 				ft_xtoi.c \
+				get_img_coords.c \
 				img_init.c \
 				init_map_coords.c \
 				init_map.c \

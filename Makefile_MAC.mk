@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 18:19:35 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/07 10:20:30 by pharbst          ###   ########.fr        #
+#    Updated: 2022/11/07 10:50:10 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ BREW_FILE	=	/Users/$(USER)/.brewconfig.zsh
 
 $(NAME):	glfw $(MLX42) $(LIBFTIO) $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(MLX42) $(INC_GLFW) $(LIB_GLFW) -L $(GLFW_DIR) -L $(LIBFT_DIR) -lftio -framework Cocoa -framework OpenGL -framework IOKit -o $(NAME)
+	@echo "$(FGreen)Done"
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR)

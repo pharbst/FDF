@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bresenham.c                                        :+:      :+:    :+:   */
+/*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:37:26 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/02 20:44:08 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/07 12:42:41 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_fdy(t_bre *vars, t_a *a)
 	}
 }
 
-void	ft_draw_line(int *vector1, int *vector2, t_a *a)
+void	ft_draw_line(unsigned int vector1[2], unsigned int vector2[2], t_a *a)
 {
 	t_bre	vars;
 

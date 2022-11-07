@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 13:41:25 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/06 20:20:42 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/07 12:45:50 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_up(t_a *a);
 void	ft_down(t_a *a);
 void	ft_left(t_a *a);
 void	ft_right(t_a *a);
-void	ft_draw_line(int *vector1, int *vector2, t_a *a);
+void	ft_draw_line(unsigned int vector1[2], unsigned int vector2[2], t_a *a);
 void	free_map(t_a *a);
 char	**ft_better_split(char *src, char c);
 char	*ft_better_trim(char *src, char *set);
@@ -43,6 +43,7 @@ void	ft_img_calc(t_a *a);
 void	ft_rotate(char *flag, t_a *a);
 void	ft_set_pixel(unsigned int x, unsigned int y, t_img *img, unsigned int color);
 long	ft_xtoi(char *src);
+void	get_img_coords(t_a *a);
 void	img_init(t_a *a);
 void	init_map_coords(t_a *a);
 void	init_map(t_a *a);
