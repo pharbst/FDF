@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 13:40:02 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/08 20:53:53 by pharbst          ###   ########.fr        #
+#    Updated: 2022/11/08 22:54:40 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ NAME		=	fdf
 # srcfiles
 SRC_NAME	=	main.c \
 				draw_line.c \
-				img_calc.c \
+				img_draw.c \
 				rotate.c \
 				set_pixel.c \
 				get_img_coords.c \
@@ -43,6 +43,7 @@ SRC_NAME	=	main.c \
 \
 				checkkeys.c \
 				keyaction_arrow.c \
+				keyaction_rotation.c \
 				keyaction_special.c \
 				keyhook_arrow.c \
 				keyhook_numpad.c \
@@ -93,16 +94,17 @@ endif
 all: $(NAME)
 
 $(MLX42):
-	make -C $(MLX_DIR)
+	@make -C $(MLX_DIR)
 
 $(LIBFTIO):
-	make -C $(LIBFT_DIR)
+	@make -C $(LIBFT_DIR)
 
 fclean:
-	rm -rf $(OBJ_DIR)
-	rm -f $(NAME)
-	make fclean -C $(MLX_DIR)
-	make fclean -C $(LIBFT_DIR)
+	@echo "$(FRed)Cleaning$(RESET)"
+	@rm -rf $(OBJ_DIR)
+	@rm -f $(NAME)
+	@make fclean -C $(MLX_DIR)
+	@make fclean -C $(LIBFT_DIR)
 
 re: fclean all
 

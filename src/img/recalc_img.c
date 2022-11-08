@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:28:33 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/08 14:46:36 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/08 22:45:34 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	recalc_img(t_a *a)
 	rotate("yaw", a);
 	rotate("pitch", a);
 	rotate("roll", a);
+	get_img_coords(a);
 	offset(a);
-	img_calc(a);
+	img_draw(a);
 }

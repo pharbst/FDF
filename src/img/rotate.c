@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 12:46:14 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/08 14:45:04 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/08 22:14:37 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,10 @@ static double	**ft_roll(double **matrix, double angel)
 	return (matrix);
 }
 
-void	rotate(char *flag, t_a *a)
+static void	rotate_helper(double *vector, t_map *node, double **mat)
 {
-	t_map	*node;
-	double	**mat;
-	double	*vector;
 	double	*new_vec;
-	vector = ft_calloc(4, sizeof(double));
-	new_vec = ft_calloc(4, sizeof(double));
-	if (strcmp(flag, "yaw") == 0)
-		mat = ft_yaw(a->ry, a->gamma);
-	else if (strcmp(flag, "pitch") == 0)
-		mat = ft_pitch(a->rx, a->beta);
-	else if (strcmp(flag, "roll") == 0)
-		mat = ft_roll(a->rz, a->alpha);
-	// printmatrix(mat);
-	node = a->map;
+
 	while (node)
 	{
 		vector[0] = node->a_x;
@@ -62,11 +50,34 @@ void	rotate(char *flag, t_a *a)
 		vector[2] = node->a_z;
 		vector[3] = 1;
 		new_vec = mat_multi(mat, vector);
-		// printf("vector=%f|%f|%f\nnew_vec=%f|%f|%f\n", vector[0], vector[1], vector[2], new_vec[0], new_vec[1], new_vec[2]);
 		node->a_x = new_vec[0];
 		node->a_y = new_vec[1];
 		node->a_z = new_vec[2];
+		free(new_vec);
 		node = node->next;
 	}
-	return (free(vector), free(new_vec)); 
+}
+
+void	rotate(char *flag, t_a *a)
+{
+	t_map	*node;
+	double	**mat;
+	double	*vector;
+
+	node = a->map;
+	vector = ft_calloc(4, sizeof(double));
+	if (ft_strcmp(flag, "yaw") == 0)
+		mat = ft_yaw(a->ry, a->gamma);
+	if (ft_strcmp(flag, "yaw") == 0)
+		a->gamma = 0;
+	if (ft_strcmp(flag, "pitch") == 0)
+		mat = ft_pitch(a->rx, a->beta);
+	if (ft_strcmp(flag, "pitch") == 0)
+		a->beta = 0;
+	if (ft_strcmp(flag, "roll") == 0)
+		mat = ft_roll(a->rz, a->alpha);
+	if (ft_strcmp(flag, "roll") == 0)
+		a->alpha = 0;
+	rotate_helper(vector, node, mat);
+	free(vector);
 }

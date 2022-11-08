@@ -6,9 +6,11 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 16:38:37 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/08 14:38:29 by pharbst          ###   ########.fr        #
+#    Updated: 2022/11/08 22:32:00 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+MAKEFLAGS += --no-print-directory
 
 Black			=	$(shell echo -e "\033[0;30m")
 FBlack			=	$(shell echo -e "\033[1;30m")
@@ -32,7 +34,7 @@ RESET			=	$(shell echo -e "\033[0m")
 
 $(NAME):	glfw $(MLX42) $(LIBFTIO) $(OBJ)
 	@$(CC) $(CFLAGS) $(LINUX_FLAGS) $(OBJ) $(INC_SRC) $(INC_LIBFTIO) $(INC_MLX) -L $(MLX_DIR) -lmlx42 -L $(LIBFT_DIR) -lftio -o  $(NAME)
-	@echo "$(FGreen)Done"
+	@echo "$(FGreen)Done$(RESET)"
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)*/%.c
 	@mkdir -p $(OBJ_DIR)
@@ -41,7 +43,11 @@ $(OBJ_DIR)%.o:	$(SRC_DIR)*/%.c
 
 glfw:
 ifeq ($(OS_LIKE), arch)
+ifneq ($(shell pacman -Qs glfw-x11),)
+	@echo "$(FBlue)glfw-x11 is already installed$(RESET)"
+else
 	@sudo pacman -S --noconfirm glfw-x11
+endif
 else ifeq ($(OS), arch)
 	@pacman -S --noconfirm glfw-x11
 else ifeq ($(OS_LIKE), debian)
