@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 18:19:35 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/07 10:50:10 by pharbst          ###   ########.fr        #
+#    Updated: 2022/11/08 12:45:18 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ $(NAME):	glfw $(MLX42) $(LIBFTIO) $(OBJ)
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR)
-	@echo "$(FGreen)Compiling: $(RESET) $<"
+	@echo "$(FGreen)Compiling:$(RESET) $(notdir $<)"
 	@$(CC) $(CFLAGS) -o $@ -c $(INC_LIBFTIO) $(INC_MLX) $^ $(INC_SRC)
 
 glfw: $(BREW_FILE) $(GLFW_DIR)

@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 13:40:02 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/07 12:44:39 by pharbst          ###   ########.fr        #
+#    Updated: 2022/11/08 20:53:53 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,29 +26,37 @@ LINUX_FLAGS	=	-ldl -lglfw -lm
 NAME		=	fdf
 
 # srcfiles
-SRC_NAME	=	additionnal_keys.c \
-				arrow_keys.c \
+SRC_NAME	=	main.c \
 				draw_line.c \
-				free_map.c \
-				ft_better_split.c \
-				ft_better_trim.c \
-				ft_exit.c \
-				ft_img_calc.c \
-				ft_rotate.c \
-				ft_set_pixel.c \
-				ft_xtoi.c \
+				img_calc.c \
+				rotate.c \
+				set_pixel.c \
 				get_img_coords.c \
+				offset.c \
+				recalc_img.c \
+\
 				img_init.c \
 				init_map_coords.c \
 				init_map.c \
 				init_matrix.c \
+				t_a_init.c \
+\
+				checkkeys.c \
+				keyaction_arrow.c \
+				keyaction_special.c \
+				keyhook_arrow.c \
+				keyhook_numpad.c \
+				keyhook_special.c \
 				keyhooks.c \
-				main.c \
+\
+				free_map.c \
+				ft_better_split.c \
+				ft_better_trim.c \
+				ft_exit.c \
+				ft_xtoi.c \
 				map_size.c \
 				matrix_multiply.c \
 				read_map.c \
-				t_a_init.c \
-				wasd_keys.c \
 				structprint.c \
 
 # directorys

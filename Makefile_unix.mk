@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 16:38:37 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/07 10:30:03 by pharbst          ###   ########.fr        #
+#    Updated: 2022/11/08 14:38:29 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,9 +34,9 @@ $(NAME):	glfw $(MLX42) $(LIBFTIO) $(OBJ)
 	@$(CC) $(CFLAGS) $(LINUX_FLAGS) $(OBJ) $(INC_SRC) $(INC_LIBFTIO) $(INC_MLX) -L $(MLX_DIR) -lmlx42 -L $(LIBFT_DIR) -lftio -o  $(NAME)
 	@echo "$(FGreen)Done"
 
-$(OBJ_DIR)%.o:	$(SRC_DIR)%.c
+$(OBJ_DIR)%.o:	$(SRC_DIR)*/%.c
 	@mkdir -p $(OBJ_DIR)
-	@echo "$(FGreen)Compiling: $(RESET) $<"
+	@echo "$(FGreen)Compiling:$(RESET) $(notdir $<)"
 	@$(CC) $(CFLAGS) -o $@ -c $(INC_LIBFTIO) $(INC_MLX) $^ $(INC_SRC)
 
 glfw:

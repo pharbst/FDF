@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_set_pixel.c                                     :+:      :+:    :+:   */
+/*   keyaction_special.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 14:58:20 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/02 20:32:48 by pharbst          ###   ########.fr       */
+/*   Created: 2022/11/08 20:53:09 by pharbst           #+#    #+#             */
+/*   Updated: 2022/11/08 21:02:47 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/fdf.h"
+#include "fdf.h"
 
-void	ft_set_pixel(unsigned int x, unsigned int y, t_img *img, unsigned int color)
+void	keyaction_special(t_a *a)
 {
-	img->pixel[x + y * img->width].pixel = color;
+	t_map	*node;
+
+	if (a->keys.tab && !a->old_keys.tab)
+		ft_print_map(a->map);
+	if (a->keys.space && !a->old_keys.space)
+	{
+		node = a->map;
+		while (node)
+		{
+			node->a_x = node->x;
+			node->a_y = node->y;
+			node->a_z = node->z;
+			node = node->next;
+		}
+	}
 }

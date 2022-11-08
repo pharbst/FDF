@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 12:20:41 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/28 16:26:43 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/08 14:29:38 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 
 
-double	*ft_mat_multi(double **matrix, double *vector)
+double	*mat_multi(double **matrix, double *vector)
 {
 	double	*ret;
 

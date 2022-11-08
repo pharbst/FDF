@@ -6,13 +6,13 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:10:30 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/08 12:33:59 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/08 13:57:40 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-void	ft_keyhook1(t_a *a)
+void	keyhook1(t_a *a)
 {
 	if (mlx_is_key_down(a->mlx, MLX_KEY_Q))
 		a->keys.q = 1;

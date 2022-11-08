@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rotate.c                                        :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 12:46:14 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/08 11:45:16 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/08 14:45:04 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static double	**ft_roll(double **matrix, double angel)
 	return (matrix);
 }
 
-void	ft_rotate(char *flag, t_a *a)
+void	rotate(char *flag, t_a *a)
 {
 	t_map	*node;
 	double	**mat;
@@ -61,7 +61,7 @@ void	ft_rotate(char *flag, t_a *a)
 		vector[1] = node->a_y;
 		vector[2] = node->a_z;
 		vector[3] = 1;
-		new_vec = ft_mat_multi(mat, vector);
+		new_vec = mat_multi(mat, vector);
 		// printf("vector=%f|%f|%f\nnew_vec=%f|%f|%f\n", vector[0], vector[1], vector[2], new_vec[0], new_vec[1], new_vec[2]);
 		node->a_x = new_vec[0];
 		node->a_y = new_vec[1];

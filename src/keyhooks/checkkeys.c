@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_a_init.c                                         :+:      :+:    :+:   */
+/*   checkkeys.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 17:09:21 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/08 14:32:39 by pharbst          ###   ########.fr       */
+/*   Created: 2022/11/08 13:28:17 by pharbst           #+#    #+#             */
+/*   Updated: 2022/11/08 20:56:25 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/fdf.h"
+#include "fdf.h"
 
-void	t_a_init(t_a *a)
+static void	keyaction(t_a *a)
 {
-	a->mlx = mlx_init(WIDTH, HEIGHT, "FDF", true);
-	if (!a->mlx)
-		ft_exit(a);
-	a->mlximg = mlx_new_image(a->mlx, WIDTH, HEIGHT);
-	ft_bzero(a->mlximg->pixels, WIDTH * HEIGHT * sizeof(t_pixel));
-	if (!a->mlximg)
-		ft_exit(a);
-	img_init(a);
-	if (!a->img)
-		ft_exit(a);
-	init_matrix(a);
+	keyaction_arrow(a);
+	keyaction_special(a);
+}
+
+void	check_keys(t_a *a)
+{
+	a->old_keys = a->keys;
+	keyhook_arrow(a);
+	special_keyhook1(a);
+	special_keyhook2(a);
+	special_keyhook3(a);
+	keyhook_num1(a);
+	keyhook_num2(a);
+	keyhook1(a);
+	keyhook2(a);
+	keyhook3(a);
+	keyhook4(a);
+	keyhook5(a);
+	keyaction(a);
 }

@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 18:49:51 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/08 12:42:51 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/08 14:39:49 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	hook(void *param)
 	a = (t_a *)param;
 	check_keys(a);
 	recalc_img(a);
-	print_img(a);
+	// print_img(a);
 }
 
 int	main(int argc, char **argv)
@@ -44,12 +44,12 @@ int	main(int argc, char **argv)
 	a->gamma = 45;
 	a->beta = -45;
 	a->alpha = -0;
-	ft_rotate("yaw", a);
-	ft_rotate("roll", a);
-	ft_rotate("pitch", a);
+	rotate("yaw", a);
+	rotate("roll", a);
+	rotate("pitch", a);
 	get_img_coords(a);
 	// offset(a);
-	ft_img_calc(a);
+	img_calc(a);
 	unsigned int vector1[2] = {0, 500};
 	unsigned int vector2[2] = {1000, 500};
 	// ft_draw_line(vector1, vector2, a);
