@@ -1,0 +1,29 @@
+==39651== Invalid free() / delete / delete[] / realloc()
+==39651==    at 0x484426F: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==39651==    by 0x10CB62: free_map (free_map.c:29)
+==39651==    by 0x10D118: ft_exit (ft_exit.c:41)
+==39651==    by 0x10A649: main (main.c:58)
+==39651==  Address 0x12146e90 is 0 bytes inside a block of size 88 free'd
+==39651==    at 0x484426F: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==39651==    by 0x10CB40: free_map (free_map.c:26)
+==39651==    by 0x10D118: ft_exit (ft_exit.c:41)
+==39651==    by 0x10A649: main (main.c:58)
+==39651==  Block was alloc'd at
+==39651==    at 0x4841888: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==39651==    by 0x11467B: ft_calloc (ft_calloc.c:26)
+==39651==    by 0x10D766: read_map (read_map.c:78)
+==39651==    by 0x10A554: main (main.c:41)
+==39651== 
+==39651== Invalid free() / delete / delete[] / realloc()
+==39651==    at 0x484426F: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==39651==    by 0x10D13B: ft_exit (ft_exit.c:43)
+==39651==    by 0x10A649: main (main.c:58)
+==39651==  Address 0x4e18570 is 0 bytes inside a block of size 32 free'd
+==39651==    at 0x484426F: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==39651==    by 0x10F917: mlx_freen (in /home/peter/Documents/42/Projects/fdf/fdf_public/fdf)
+==39651==    by 0x10A63D: main (main.c:57)
+==39651==  Block was alloc'd at
+==39651==    at 0x4846A73: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==39651==    by 0x10EA1E: mlx_init (in /home/peter/Documents/42/Projects/fdf/fdf_public/fdf)
+==39651==    by 0x10B9C1: t_a_init (t_a_init.c:17)
+==39651==    by 0x10A546: main (main.c:40)

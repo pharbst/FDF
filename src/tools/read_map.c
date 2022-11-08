@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:35:18 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/08 11:51:24 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/08 23:29:14 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,6 @@ t_map	*read_map(int fd)
 		if (topnode == NULL)
 			topnode = head;
 	}
+	ft_free_split(var);
 	return (head);
 }
