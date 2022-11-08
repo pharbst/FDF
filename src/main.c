@@ -6,11 +6,12 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 18:49:51 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/07 18:05:07 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/08 12:42:51 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include "fdf_struct.h"
 
 mlx_image_t	*g_img;
 
@@ -19,9 +20,9 @@ void	hook(void *param)
 	t_a	*a;
 
 	a = (t_a *)param;
-	if (mlx_is_key_down(a->mlx, MLX_KEY_ESCAPE))
-		mlx_close_window(a->mlx);
-
+	check_keys(a);
+	recalc_img(a);
+	print_img(a);
 }
 
 int	main(int argc, char **argv)
@@ -40,16 +41,18 @@ int	main(int argc, char **argv)
 	a->map = read_map(a->fd);
 	map_size(a);
 	init_map_coords(a);
-	// ft_print_map(a->map);
-	a->gamma = -30;
-	a->beta = 30;
+	a->gamma = 45;
+	a->beta = -45;
+	a->alpha = -0;
 	ft_rotate("yaw", a);
-	// ft_print_map(a->map);
+	ft_rotate("roll", a);
 	ft_rotate("pitch", a);
-	// ft_print_map(a->map);
 	get_img_coords(a);
-	// ft_print_map(a->map);
+	// offset(a);
 	ft_img_calc(a);
+	unsigned int vector1[2] = {0, 500};
+	unsigned int vector2[2] = {1000, 500};
+	// ft_draw_line(vector1, vector2, a);
 	
 
 

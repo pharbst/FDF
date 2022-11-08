@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 12:46:14 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/02 20:08:57 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/08 11:45:16 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	ft_rotate(char *flag, t_a *a)
 	vector = ft_calloc(4, sizeof(double));
 	new_vec = ft_calloc(4, sizeof(double));
 	if (strcmp(flag, "yaw") == 0)
-		mat = ft_yaw(a->ry, a->beta);
+		mat = ft_yaw(a->ry, a->gamma);
 	else if (strcmp(flag, "pitch") == 0)
-		mat = ft_pitch(a->rx, a->gamma);
+		mat = ft_pitch(a->rx, a->beta);
 	else if (strcmp(flag, "roll") == 0)
 		mat = ft_roll(a->rz, a->alpha);
 	// printmatrix(mat);

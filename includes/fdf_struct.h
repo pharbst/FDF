@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 19:08:16 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/06 19:11:47 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/08 12:39:58 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,57 @@ typedef struct s_keys
 {
 	bool	shift;
 	bool	space;
+	bool	alt;
+	bool	ctrl;
+	bool	tab;
+	bool	f1;
+	bool	f2;
+	bool	f3;
+	bool	f4;
+	bool	f5;
+	bool	f6;
+	bool	up;
+	bool	down;
+	bool	left;
+	bool	right;
+	bool	add;
+	bool	sub;
+	bool	num_1;
+	bool	num_2;
+	bool	num_3;
+	bool	num_4;
+	bool	num_5;
+	bool	num_6;
+	bool	num_7;
+	bool	num_8;
+	bool	num_9;
+	bool	num_0;
+	bool	q;
+	bool	w;
+	bool	e;
+	bool	r;
+	bool	t;
+	bool	y;
+	bool	u;
+	bool	i;
+	bool	o;
+	bool	p;
+	bool	a;
+	bool	s;
+	bool	d;
+	bool	f;
+	bool	g;
+	bool	h;
+	bool	j;
+	bool	k;
+	bool	l;
+	bool	z;
+	bool	x;
+	bool	c;
+	bool	v;
+	bool	b;
+	bool	n;
+	bool	m;
 } t_keys;
 
 typedef struct s_a
@@ -85,13 +136,20 @@ typedef struct s_a
 	const unsigned int	map_x;
 	const unsigned int	map_z;
 	int					fd;
+	int					x_offset;
+	int					y_offset;
+	int					z_offset;
+	int					zoom;
+	int 				trans_x;
+	int					trans_y;
+	double				alpha;		//roll
+	double				beta;		//pitch
+	double				gamma;		//yaw
 	double				**rx;		//roll
 	double				**ry;		//yaw
 	double				**rz;		//pitch
-	double				alpha;		//roll
-	double				beta;		//yaw
-	double				gamma;		//roll
-	t_keys				*keys;
+	t_keys				keys;
+	t_keys				old_keys;
 	mlx_t 				*mlx;
 	mlx_image_t			*mlximg;
 	t_img		 		*img;

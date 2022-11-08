@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:35:18 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/07 18:02:52 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/08 11:51:24 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ t_map	*read_map(int fd)
 			next = ft_calloc(1, sizeof(t_map));
 			if (!next)
 				return (ft_clear(head, line, var), NULL);
-			next->y = ft_atoi(var[0]);
+			next->y = ft_atoi(var[0]) * 10;
 			if (var[1])
 				next->color.pixel = (unsigned int)ft_xtoi(var[1]);
 			if (!head)
