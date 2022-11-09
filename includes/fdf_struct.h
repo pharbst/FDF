@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 19:08:16 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/09 17:52:32 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/09 18:09:36 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct s_bre
 typedef struct s_rm
 {
 	unsigned int	i;
+	int				fd;
 	t_map			*head;
 	t_map			*node;
 	t_map			*next;
@@ -140,7 +141,7 @@ typedef struct s_keys
 	bool	b;
 	bool	n;
 	bool	m;
-} t_keys;
+}	t_keys;
 
 typedef struct s_a
 {
