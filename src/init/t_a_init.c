@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:09:21 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/08 14:32:39 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/09 15:03:25 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	t_a_init(t_a *a)
 	if (!a->mlx)
 		ft_exit(a);
 	a->mlximg = mlx_new_image(a->mlx, WIDTH, HEIGHT);
-	ft_bzero(a->mlximg->pixels, WIDTH * HEIGHT * sizeof(t_pixel));
 	if (!a->mlximg)
 		ft_exit(a);
 	img_init(a);

@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 18:19:35 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/08 12:45:18 by pharbst          ###   ########.fr        #
+#    Updated: 2022/11/09 14:10:01 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ $(NAME):	glfw $(MLX42) $(LIBFTIO) $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(MLX42) $(INC_GLFW) $(LIB_GLFW) -L $(GLFW_DIR) -L $(LIBFT_DIR) -lftio -framework Cocoa -framework OpenGL -framework IOKit -o $(NAME)
 	@echo "$(FGreen)Done"
 
-$(OBJ_DIR)%.o:	$(SRC_DIR)%.c
+$(OBJ_DIR)%.o:	$(SRC_DIR)*/%.c
 	@mkdir -p $(OBJ_DIR)
 	@echo "$(FGreen)Compiling:$(RESET) $(notdir $<)"
 	@$(CC) $(CFLAGS) -o $@ -c $(INC_LIBFTIO) $(INC_MLX) $^ $(INC_SRC)

@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 19:08:16 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/08 22:50:34 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/09 15:02:14 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ typedef union s_pixel
 
 typedef struct s_img
 {
-	const unsigned int	width;
-	const unsigned int	height;
+	const int			width;
+	const int			height;
 	int					count;
 	t_pixel				*pixel;
 	mlx_instance_t		*instances;
@@ -67,8 +67,8 @@ typedef struct s_bre
 	int				x1;
 	int				y0;
 	int				y1;
-	unsigned int	dx;
-	unsigned int	dy;
+	int				dx;
+	int				dy;
 	double			f;
 	unsigned int	fd;
 	unsigned int	sd;

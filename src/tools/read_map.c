@@ -6,26 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:35:18 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/08 23:29:14 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/09 14:43:25 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
-
-static void	ft_free_split(char **src)
-{
-	int	i;
-
-	i = 0;
-	if (!src)
-		return ;
-	while (src[i])
-	{
-		free(src[i]);
-		i++;
-	}
-	free(src);
-}
 
 static void	ft_clear(t_map *head, char **line, char **var)
 {

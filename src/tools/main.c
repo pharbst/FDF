@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 18:49:51 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/08 22:45:13 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/09 14:46:50 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	main(int argc, char **argv)
 	a->beta = -45;
 	a->alpha = -0;
 	recalc_img(a);
-	unsigned int vector1[2] = {0, 500};
-	unsigned int vector2[2] = {1000, 500};
+	// unsigned int vector1[2] = {0, 500};
+	// unsigned int vector2[2] = {1000, 500};
 	// ft_draw_line(vector1, vector2, a);
 	
 
