@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 16:26:00 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/09 17:20:08 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/10 00:52:45 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,10 @@ static void	help(t_a *a, double x, double z, double i)
 
 void	init_map_coords(t_a *a)
 {
-	t_map	*node;
 	double	i;
 	double	x;
 	double	z;
 
-	node = a->map;
 	if (a->map_x > a->map_z)
 	{
 		i = 900.0 / (a->map_x - 1);
