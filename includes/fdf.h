@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 13:41:25 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/09 14:45:36 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/09 17:22:00 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ void	t_a_init(t_a *a);
 
 //keyhooks
 void	check_keys(t_a *a);
-void	keyaction_arrow(t_a *a);
+void	keyaction_arrow1(t_a *a);
+void	keyaction_arrow2(t_a *a);
 void	keyaction_rotation1(t_a *a);
 void	keyaction_rotation2(t_a *a);
 void	keyaction_rotation3(t_a *a);

@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 16:22:46 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/22 16:55:00 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/09 17:44:38 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ long	ft_xtoi(char *src)
 	long	ret;
 
 	if (!src)
-		return(-1);
+		return (-1);
 	if (!*src)
 		return (0);
 	if (src[0] != '0' && (src[1] != 'x' || src[1] != 'X'))

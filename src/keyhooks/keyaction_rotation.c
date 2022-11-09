@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 22:49:19 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/09 14:45:55 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/09 17:22:29 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	keyaction_rotation2(t_a *a)
 
 void	keyaction_rotation3(t_a *a)
 {
-		if (a->keys.d && !a->keys.a)
+	if (a->keys.d && !a->keys.a)
 	{
 		if (a->keys.shift)
 			a->gamma = -10;

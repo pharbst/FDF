@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:35:32 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/06 20:17:56 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/09 17:24:19 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	free_map(t_a *a)
 {
-	t_map   *node;
-	t_map   *next;
+	t_map	*node;
+	t_map	*next;
 
 	if (!a->map)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:28:17 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/09 14:54:57 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/09 17:21:49 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static void	keyaction(t_a *a)
 {
-	keyaction_arrow(a);
+	keyaction_arrow1(a);
+	keyaction_arrow2(a);
 	keyaction_rotation1(a);
 	keyaction_rotation2(a);
 	keyaction_rotation3(a);

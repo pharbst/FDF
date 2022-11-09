@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 19:08:16 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/09 15:02:14 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/09 17:52:32 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,15 @@ typedef struct s_map
 	struct s_map	*down;
 	struct s_map	*next;
 	t_pixel			color;
-	double				x;
-	double				y;
-	double				z;
-	double				a_x;
-	double				a_y;
-	double				a_z;
-	unsigned int		img_x;
-	unsigned int		img_y;
-} t_map;
+	double			x;
+	double			y;
+	double			z;
+	double			a_x;
+	double			a_y;
+	double			a_z;
+	unsigned int	img_x;
+	unsigned int	img_y;
+}	t_map;
 
 typedef struct s_bre
 {
@@ -72,7 +72,18 @@ typedef struct s_bre
 	double			f;
 	unsigned int	fd;
 	unsigned int	sd;
-} t_bre;
+}	t_bre;
+
+typedef struct s_rm
+{
+	unsigned int	i;
+	t_map			*head;
+	t_map			*node;
+	t_map			*next;
+	t_map			*topnode;
+	char			**line;
+	char			**var;
+}	t_rm;
 
 typedef struct s_keys
 {
