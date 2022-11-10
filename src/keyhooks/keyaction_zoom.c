@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   recalc_img.c                                       :+:      :+:    :+:   */
+/*   keyaction_zoom.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 13:28:33 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 01:44:44 by pharbst          ###   ########.fr       */
+/*   Created: 2022/11/10 01:37:59 by pharbst           #+#    #+#             */
+/*   Updated: 2022/11/10 01:50:49 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void	zoom(t_a *a)
+void	keyaction_zoom(t_a *a)
 {
-	t_map	*node;
-
-	node = a->map;
-	while (node)
-	{
-		node->a_x *= a->zoom;
-		node->a_y *= a->zoom;
-		node->a_z *= a->zoom;
-		node = node->next;
-	}
-}
-
-void	recalc_img(t_a *a)
-{
-	ft_bzero(a->img->pixel, a->img->width * a->img->height * sizeof(t_pixel));
-	rotate("yaw", a);
-	rotate("pitch", a);
-	rotate("roll", a);
-	zoom(a);
-	get_img_coords(a);
-	offset(a);
-	img_draw(a);
+	if (a->keys.add && !a->keys.sub)
+		a->zoom = 1.01;
+	else if (a->keys.sub && !a->keys.add)
+		a->zoom = 0.99;
+	else
+		a->zoom = 1.0;
 }

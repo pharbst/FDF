@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
+#    By: peter <peter@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 13:40:02 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/09 15:00:00 by pharbst          ###   ########.fr        #
+#    Updated: 2022/11/10 01:43:13 by peter            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OS_LIKE		=	$(shell cat /etc/os-release | grep ID_LIKE | cut -d= -f2)
 
 # Compiler
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror
+# CFLAGS		=	-Wall -Wextra -Werror
 CFLAGS			+=	-g
 LINUX_FLAGS	=	-ldl -lglfw -lm
 
@@ -45,6 +45,7 @@ SRC_NAME	=	main.c \
 				keyaction_arrow.c \
 				keyaction_rotation.c \
 				keyaction_special.c \
+				keyaction_zoom.c \
 				keyhook_arrow.c \
 				keyhook_numpad.c \
 				keyhook_special.c \

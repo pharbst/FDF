@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 18:49:51 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 01:07:15 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/10 01:51:28 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	hook(void *param)
 	a = (t_a *)param;
 	check_keys(a);
 	recalc_img(a);
-	draw_line((unsigned int[2]){0, 0}, (unsigned int[2]){100, 100}, a, 0Xff000000);
 }
 
 int	main(int argc, char **argv)

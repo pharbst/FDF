@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf_struct.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: peter <peter@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 19:08:16 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/09 18:09:36 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/10 01:32:19 by peter            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,10 +148,7 @@ typedef struct s_a
 	const unsigned int	map_x;
 	const unsigned int	map_z;
 	int					fd;
-	int					x_offset;
-	int					y_offset;
-	int					z_offset;
-	int					zoom;
+	double				zoom;
 	int 				trans_x;
 	int					trans_y;
 	double				alpha;		//roll
@@ -166,7 +163,6 @@ typedef struct s_a
 	mlx_image_t			*mlximg;
 	t_img		 		*img;
 	t_map				*map;
-	t_pixel				color;
 }t_a;
 
 #endif

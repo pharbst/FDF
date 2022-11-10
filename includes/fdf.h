@@ -6,7 +6,7 @@
 /*   By: peter <peter@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 13:41:25 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 00:55:53 by peter            ###   ########.fr       */
+/*   Updated: 2022/11/10 01:40:33 by peter            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	keyaction_rotation1(t_a *a);
 void	keyaction_rotation2(t_a *a);
 void	keyaction_rotation3(t_a *a);
 void	keyaction_special(t_a *a);
+void	keyaction_zoom(t_a *a);
 void	keyhook_arrow(t_a *a);
 void	keyhook_num1(t_a *a);
 void	keyhook_num2(t_a *a);
