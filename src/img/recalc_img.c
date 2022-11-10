@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:28:33 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 01:44:44 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/10 16:19:46 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ static void	zoom(t_a *a)
 void	recalc_img(t_a *a)
 {
 	ft_bzero(a->img->pixel, a->img->width * a->img->height * sizeof(t_pixel));
-	rotate("yaw", a);
+	reset_coords(a);
 	rotate("pitch", a);
+	rotate("yaw", a);
 	rotate("roll", a);
 	zoom(a);
 	get_img_coords(a);
