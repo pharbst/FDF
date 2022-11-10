@@ -6,7 +6,7 @@
 #    By: peter <peter@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 13:40:02 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/10 16:51:19 by peter            ###   ########.fr        #
+#    Updated: 2022/11/10 17:11:15 by peter            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC_NAME	=	main.c \
 				recalc_img.c \
 				rotate.c \
 				set_pixel.c \
+				zoom.c \
 \
 				img_init.c \
 				init_map_coords.c \

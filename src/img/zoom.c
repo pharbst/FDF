@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   recalc_img.c                                       :+:      :+:    :+:   */
+/*   zoom.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 13:28:33 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 17:10:43 by pharbst          ###   ########.fr       */
+/*   Created: 2022/11/10 17:10:49 by pharbst           #+#    #+#             */
+/*   Updated: 2022/11/10 17:10:54 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	recalc_img(t_a *a)
+void	zoom(t_a *a)
 {
-	ft_bzero(a->img->pixel, a->img->width * a->img->height * sizeof(t_pixel));
-	reset_coords(a);
-	rotate("pitch", a);
-	rotate("yaw", a);
-	rotate("roll", a);
-	zoom(a);
-	get_img_coords(a);
-	offset(a);
-	img_draw(a);
+	t_map	*node;
+
+	node = a->map;
+	while (node)
+	{
+		node->a_x *= a->zoom;
+		node->a_y *= a->zoom;
+		node->a_z *= a->zoom;
+		node = node->next;
+	}
 }
