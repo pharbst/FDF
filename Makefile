@@ -6,7 +6,7 @@
 #    By: peter <peter@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 13:40:02 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/10 02:17:35 by peter            ###   ########.fr        #
+#    Updated: 2022/11/10 16:51:19 by peter            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,12 +28,12 @@ NAME		=	fdf
 # srcfiles
 SRC_NAME	=	main.c \
 				draw_line.c \
-				img_draw.c \
-				rotate.c \
-				set_pixel.c \
 				get_img_coords.c \
+				img_draw.c \
 				offset.c \
 				recalc_img.c \
+				rotate.c \
+				set_pixel.c \
 \
 				img_init.c \
 				init_map_coords.c \
