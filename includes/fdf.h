@@ -6,7 +6,7 @@
 /*   By: peter <peter@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 13:41:25 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 01:40:33 by peter            ###   ########.fr       */
+/*   Updated: 2022/11/10 02:04:33 by peter            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ long	ft_xtoi(char *src);
 void	map_size(t_a *a);
 double	*mat_multi(double **matrix, double *vector);
 t_map	*read_map(int fd);
+void	reset_coords(t_a *a);
 void	ft_print_map(t_map *head);
 
 //main

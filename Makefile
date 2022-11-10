@@ -6,7 +6,7 @@
 #    By: peter <peter@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 13:40:02 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/10 01:43:13 by peter            ###   ########.fr        #
+#    Updated: 2022/11/10 02:04:42 by peter            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ SRC_NAME	=	main.c \
 				map_size.c \
 				matrix_multiply.c \
 				read_map.c \
+				reset_coords.c \
 				structprint.c \
 
 # directorys
