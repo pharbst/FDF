@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 18:49:51 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 01:51:28 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/10 16:59:09 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	hook(void *param)
 	a = (t_a *)param;
 	check_keys(a);
 	recalc_img(a);
+	printf("zoom=%f\n", a->zoom);
 }
 
 int	main(int argc, char **argv)
