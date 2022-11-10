@@ -6,7 +6,7 @@
 #    By: peter <peter@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 13:40:02 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/10 02:04:42 by peter            ###   ########.fr        #
+#    Updated: 2022/11/10 02:17:35 by peter            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRC_NAME	=	main.c \
 				keyaction_arrow.c \
 				keyaction_rotation.c \
 				keyaction_special.c \
+				keyaction_y.c \
 				keyaction_zoom.c \
 				keyhook_arrow.c \
 				keyhook_numpad.c \
