@@ -6,7 +6,7 @@
 /*   By: peter <peter@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 19:08:16 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 16:22:50 by peter            ###   ########.fr       */
+/*   Updated: 2022/11/10 17:15:48 by peter            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,7 @@ typedef struct s_a
 	const unsigned int	map_z;
 	int					fd;
 	double				zoom;
-	double				y;
+	double				y_scale;
 	int 				trans_x;
 	int					trans_y;
 	double				alpha;		//roll

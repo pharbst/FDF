@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 02:13:23 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 16:22:40 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/10 17:17:02 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,18 @@
 
 void	keyaction_y(t_a *a)
 {
-	t_map	*node;
-
 	if (a->keys.z && !a->keys.x)
-		a->y -= 0.1;
+	{
+		if (a->keys.shift)
+			a->y_scale *= 1.005;
+		else
+			a->y_scale *= 1.05;
+	}
 	else if (a->keys.x && !a->keys.z)
-		a->y += 0.1;
+	{
+		if (a->keys.shift)
+			a->y_scale *= 0.995;
+		else
+			a->y_scale *= 0.95;
+	}
 }

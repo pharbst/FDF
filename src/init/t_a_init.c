@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:09:21 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 16:39:18 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/10 17:17:36 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	t_a_init(t_a *a)
 	if (!a->img)
 		ft_exit(a);
 	a->zoom = 1;
-	a->y = 1;
+	a->y_scale = 1;
 	init_matrix(a);
 }

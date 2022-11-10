@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:53:09 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 17:08:35 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/10 17:17:51 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	keyaction_special(t_a *a)
 {
-	t_map	*node;
-
 	if (a->keys.tab && !a->old_keys.tab)
 		ft_print_map(a->map);
 	if (a->keys.space && !a->old_keys.space)

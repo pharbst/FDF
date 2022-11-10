@@ -6,7 +6,7 @@
 #    By: peter <peter@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 13:40:02 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/10 17:11:15 by peter            ###   ########.fr        #
+#    Updated: 2022/11/10 17:17:17 by peter            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OS_LIKE		=	$(shell cat /etc/os-release | grep ID_LIKE | cut -d= -f2)
 
 # Compiler
 CC			=	cc
-# CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror
 CFLAGS			+=	-g
 LINUX_FLAGS	=	-ldl -lglfw -lm
 
