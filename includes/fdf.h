@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: peter <peter@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 13:41:25 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/09 17:22:00 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/10 00:55:53 by peter            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 
 
 //img
-void	draw_line(unsigned int vector1[2], unsigned int vector2[2], t_a *a);
+void	draw_line(unsigned int vector1[2], unsigned int vector2[2], t_a *a, unsigned int color);
 void	get_img_coords(t_a *a);
 void	img_draw(t_a *a);
 void	offset(t_a *a);
