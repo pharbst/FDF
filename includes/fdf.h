@@ -6,7 +6,7 @@
 /*   By: peter <peter@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 13:41:25 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 17:11:08 by peter            ###   ########.fr       */
+/*   Updated: 2022/11/10 17:29:24 by peter            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	offset(t_a *a);
 void	recalc_img(t_a *a);
 void	rotate(char *flag, t_a *a);
 void	set_pixel(unsigned int x, unsigned int y, t_img *img, unsigned int color);
-// void	y_scale(t_a *a);
+void	y_scale(t_a *a);
 void	zoom(t_a *a);
 
 //init

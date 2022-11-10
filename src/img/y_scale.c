@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 16:24:40 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 16:24:54 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/10 17:30:58 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	y_scale(t_a *a)
 	node = a->map;
 	while (node)
 	{
-		node->a_y *= a->y;
+		node->a_y *= a->y_scale;
 		node = node->next;
 	}
 }
