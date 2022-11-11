@@ -6,26 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:35:18 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/08 11:51:24 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/10 01:14:33 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
-
-static void	ft_free_split(char **src)
-{
-	int	i;
-
-	i = 0;
-	if (!src)
-		return ;
-	while (src[i])
-	{
-		free(src[i]);
-		i++;
-	}
-	free(src);
-}
 
 static void	ft_clear(t_map *head, char **line, char **var)
 {
@@ -46,60 +31,70 @@ static void	ft_clear(t_map *head, char **line, char **var)
 		ft_free_split(var);
 }
 
+static t_map	*rmhelper(t_rm *rm)
+{
+	if ((*rm).var)
+		ft_free_split((*rm).var);
+	(*rm).var = ft_split((*rm).line[(*rm).i], ',');
+	if (!(*rm).var)
+		return (ft_clear((*rm).head, (*rm).line, (*rm).var), NULL);
+	(*rm).next = ft_calloc(1, sizeof(t_map));
+	if (!(*rm).next)
+		return (ft_clear((*rm).head, (*rm).line, (*rm).var), NULL);
+	(*rm).next->y = ft_atoi((*rm).var[0]);
+	if ((*rm).var[1])
+		(*rm).next->color.pixel = (unsigned int)ft_xtoi((*rm).var[1]);
+	else
+		(*rm).next->color.pixel = 0XFFFFFFFF;
+	if (!(*rm).head)
+		(*rm).head = (*rm).next;
+	if ((*rm).node)
+	{
+		if ((*rm).topnode)
+			(*rm).topnode->down = (*rm).next;
+		if ((*rm).topnode)
+			(*rm).topnode = (*rm).topnode->next;
+		if ((*rm).i != 0)
+			(*rm).node->right = (*rm).next;
+		(*rm).node->next = (*rm).next;
+	}
+	return ((*rm).head);
+}
+
+static void	rmhelper2(t_rm *rm)
+{
+	ft_free_split((*rm).line);
+	(*rm).line = ft_better_split(ft_better_trim(
+				get_next_line((*rm).fd), " \t\n\v\f\r"), ' ');
+	if ((*rm).topnode == NULL)
+		(*rm).topnode = (*rm).head;
+}
+
 t_map	*read_map(int fd)
 {
-	unsigned int	i;
-	t_map			*head;
-	t_map			*node;
-	t_map			*next;
-	t_map			*topnode;
-	char			**line;
-	char			**var;
+	t_rm	rm;
 
-	node = NULL;
-	next = NULL;
-	topnode = NULL;
-	head = NULL;
-	var = NULL;
-
-	line = ft_better_split(ft_better_trim(get_next_line(fd), " \t\v\f\n\r"), ' ');
-	if (!line)
+	rm.fd = fd;
+	rm.node = NULL;
+	rm.next = NULL;
+	rm.topnode = NULL;
+	rm.head = NULL;
+	rm.var = NULL;
+	rm.line = ft_better_split(ft_better_trim(get_next_line(fd), " \t\v\f\n\r"), ' ');
+	if (!rm.line)
 		return (NULL);
-	while (line)
+	while (rm.line)
 	{
-		i = 0;
-		while (line[i])
+		rm.i = 0;
+		while (rm.line[rm.i])
 		{
-			if(var)
-				ft_free_split(var);
-			var = ft_split(line[i], ',');
-			if (!var)
-				return (ft_clear(head, line, var), NULL);
-			next = ft_calloc(1, sizeof(t_map));
-			if (!next)
-				return (ft_clear(head, line, var), NULL);
-			next->y = ft_atoi(var[0]) * 10;
-			if (var[1])
-				next->color.pixel = (unsigned int)ft_xtoi(var[1]);
-			if (!head)
-				head = next;
-			if (node)
-			{
-				if (topnode)
-					topnode->down = next;
-				if (topnode)
-					topnode = topnode->next;
-				if (i != 0)
-					node->right = next;
-				node->next = next;
-			}
-			node = next;
-			i++;
+			if (!rmhelper(&rm))
+				return (NULL);
+			rm.node = rm.next;
+			rm.i++;
 		}
-		ft_free_split(line);
-		line = ft_better_split(ft_better_trim(get_next_line(fd), " \t\n\v\f\r"), ' ');
-		if (topnode == NULL)
-			topnode = head;
+		rmhelper2(&rm);
 	}
-	return (head);
+	ft_free_split(rm.var);
+	return (rm.head);
 }

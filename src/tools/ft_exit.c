@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:25:29 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/06 18:57:35 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/09 16:01:35 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,5 @@ void	ft_exit(t_a *a)
 	free_matrix(a);
 	if (a->map)
 		free_map(a);
-	if (a->mlx)
-		free(a->mlx);
 	exit(0);
 }

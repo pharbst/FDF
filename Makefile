@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
+#    By: peter <peter@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 13:40:02 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/08 22:54:40 by pharbst          ###   ########.fr        #
+#    Updated: 2022/11/10 17:29:30 by peter            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OS_LIKE		=	$(shell cat /etc/os-release | grep ID_LIKE | cut -d= -f2)
 
 # Compiler
 CC			=	cc
-# CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror
 CFLAGS			+=	-g
 LINUX_FLAGS	=	-ldl -lglfw -lm
 
@@ -28,12 +28,14 @@ NAME		=	fdf
 # srcfiles
 SRC_NAME	=	main.c \
 				draw_line.c \
-				img_draw.c \
-				rotate.c \
-				set_pixel.c \
 				get_img_coords.c \
+				img_draw.c \
 				offset.c \
 				recalc_img.c \
+				rotate.c \
+				set_pixel.c \
+				y_scale.c \
+				zoom.c \
 \
 				img_init.c \
 				init_map_coords.c \
@@ -45,6 +47,8 @@ SRC_NAME	=	main.c \
 				keyaction_arrow.c \
 				keyaction_rotation.c \
 				keyaction_special.c \
+				keyaction_y.c \
+				keyaction_zoom.c \
 				keyhook_arrow.c \
 				keyhook_numpad.c \
 				keyhook_special.c \
@@ -58,6 +62,7 @@ SRC_NAME	=	main.c \
 				map_size.c \
 				matrix_multiply.c \
 				read_map.c \
+				reset_coords.c \
 				structprint.c \
 
 # directorys

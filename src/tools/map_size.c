@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:43:48 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/03 15:44:41 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/09 17:45:52 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	map_size(t_a *a)
 	t_map			*head;
 
 	head = a->map;
-
 	i = 1;
 	j = 1;
 	while (head->right)
@@ -27,7 +26,8 @@ void	map_size(t_a *a)
 		i++;
 		head = head->next;
 	}
-	if ((head = head->next))
+	head = head->next;
+	if (head)
 		j++;
 	while (head->down)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf_struct.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: peter <peter@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 19:08:16 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/08 22:50:34 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/10 17:15:48 by peter            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ typedef union s_pixel
 
 typedef struct s_img
 {
-	const unsigned int	width;
-	const unsigned int	height;
+	const int			width;
+	const int			height;
 	int					count;
 	t_pixel				*pixel;
 	mlx_instance_t		*instances;
@@ -51,15 +51,15 @@ typedef struct s_map
 	struct s_map	*down;
 	struct s_map	*next;
 	t_pixel			color;
-	double				x;
-	double				y;
-	double				z;
-	double				a_x;
-	double				a_y;
-	double				a_z;
-	unsigned int		img_x;
-	unsigned int		img_y;
-} t_map;
+	double			x;
+	double			y;
+	double			z;
+	double			a_x;
+	double			a_y;
+	double			a_z;
+	unsigned int	img_x;
+	unsigned int	img_y;
+}	t_map;
 
 typedef struct s_bre
 {
@@ -67,12 +67,24 @@ typedef struct s_bre
 	int				x1;
 	int				y0;
 	int				y1;
-	unsigned int	dx;
-	unsigned int	dy;
+	int				dx;
+	int				dy;
 	double			f;
 	unsigned int	fd;
 	unsigned int	sd;
-} t_bre;
+}	t_bre;
+
+typedef struct s_rm
+{
+	unsigned int	i;
+	int				fd;
+	t_map			*head;
+	t_map			*node;
+	t_map			*next;
+	t_map			*topnode;
+	char			**line;
+	char			**var;
+}	t_rm;
 
 typedef struct s_keys
 {
@@ -129,17 +141,15 @@ typedef struct s_keys
 	bool	b;
 	bool	n;
 	bool	m;
-} t_keys;
+}	t_keys;
 
 typedef struct s_a
 {
 	const unsigned int	map_x;
 	const unsigned int	map_z;
 	int					fd;
-	int					x_offset;
-	int					y_offset;
-	int					z_offset;
-	int					zoom;
+	double				zoom;
+	double				y_scale;
 	int 				trans_x;
 	int					trans_y;
 	double				alpha;		//roll
@@ -154,7 +164,6 @@ typedef struct s_a
 	mlx_image_t			*mlximg;
 	t_img		 		*img;
 	t_map				*map;
-	t_pixel				color;
 }t_a;
 
 #endif

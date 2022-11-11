@@ -6,32 +6,17 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 16:26:00 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/07 12:56:42 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/10 00:52:45 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
 
-void	init_map_coords(t_a *a)
+static void	help(t_a *a, double x, double z, double i)
 {
-	t_map			*node;
-	double	i;
-	double	x;
-	double	z;
+	t_map	*node;
 
 	node = a->map;
-	if (a->map_x > a->map_z)
-	{
-		i = 900.0 / (a->map_x - 1);
-		z = -(a->map_z - 1.0) / 2 * i;
-		x = -450.0;
-	}
-	else
-	{
-		i = 900.0 / (a->map_z - 1);
-		z = -450.0;
-		x = -(a->map_x - 1.0) / 2 * i;
-	}
 	while (node)
 	{
 		node->x = x;
@@ -48,4 +33,25 @@ void	init_map_coords(t_a *a)
 		}
 		node = node->next;
 	}
+}
+
+void	init_map_coords(t_a *a)
+{
+	double	i;
+	double	x;
+	double	z;
+
+	if (a->map_x > a->map_z)
+	{
+		i = 900.0 / (a->map_x - 1);
+		z = -(a->map_z - 1.0) / 2 * i;
+		x = -450.0;
+	}
+	else
+	{
+		i = 900.0 / (a->map_z - 1);
+		z = -450.0;
+		x = -(a->map_x - 1.0) / 2 * i;
+	}
+	help(a, x, z, i);
 }

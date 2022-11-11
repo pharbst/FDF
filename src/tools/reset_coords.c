@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_a_init.c                                         :+:      :+:    :+:   */
+/*   reset_coords.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 17:09:21 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 17:17:36 by pharbst          ###   ########.fr       */
+/*   Created: 2022/11/09 23:17:22 by pharbst           #+#    #+#             */
+/*   Updated: 2022/11/09 23:18:09 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/fdf.h"
+#include "fdf.h"
 
-void	t_a_init(t_a *a)
+void	reset_coords(t_a *a)
 {
-	a->mlx = mlx_init(WIDTH, HEIGHT, "FDF", true);
-	if (!a->mlx)
-		ft_exit(a);
-	a->mlximg = mlx_new_image(a->mlx, WIDTH, HEIGHT);
-	if (!a->mlximg)
-		ft_exit(a);
-	img_init(a);
-	if (!a->img)
-		ft_exit(a);
-	a->zoom = 1;
-	a->y_scale = 1;
-	init_matrix(a);
+	t_map	*node;
+
+	node = a->map;
+	while (node)
+	{
+		node->a_x = node->x;
+		node->a_y = node->y;
+		node->a_z = node->z;
+		node = node->next;
+	}
 }

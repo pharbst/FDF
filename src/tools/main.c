@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 18:49:51 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/08 22:45:13 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/10 17:50:17 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	hook(void *param)
 	a = (t_a *)param;
 	check_keys(a);
 	recalc_img(a);
-	img_draw(a);
 }
 
 int	main(int argc, char **argv)
@@ -45,12 +44,6 @@ int	main(int argc, char **argv)
 	a->beta = -45;
 	a->alpha = -0;
 	recalc_img(a);
-	unsigned int vector1[2] = {0, 500};
-	unsigned int vector2[2] = {1000, 500};
-	// ft_draw_line(vector1, vector2, a);
-	
-
-
 	mlx_image_to_window(a->mlx, a->mlximg, 0, 0);
 	mlx_loop_hook(a->mlx, &hook, a);
 	mlx_loop(a->mlx);
