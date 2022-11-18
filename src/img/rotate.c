@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 12:46:14 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 16:18:03 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/18 17:41:56 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,10 @@ void	rotate(char *flag, t_a *a)
 	vector = ft_calloc(4, sizeof(double));
 	if (ft_strcmp(flag, "yaw") == 0)
 		mat = ft_yaw(a->ry, a->gamma);
-	// if (ft_strcmp(flag, "yaw") == 0)
-	// 	a->gamma = 0;
 	if (ft_strcmp(flag, "pitch") == 0)
 		mat = ft_pitch(a->rx, a->beta);
-	// if (ft_strcmp(flag, "pitch") == 0)
-	// 	a->beta = 0;
 	if (ft_strcmp(flag, "roll") == 0)
 		mat = ft_roll(a->rz, a->alpha);
-	// if (ft_strcmp(flag, "roll") == 0)
-	// 	a->alpha = 0;
 	rotate_helper(vector, node, mat);
 	free(vector);
 }

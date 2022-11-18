@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:35:18 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 01:14:33 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/18 17:48:52 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,20 @@ static void	ft_clear(t_map *head, char **line, char **var)
 		ft_free_split(var);
 }
 
+static void	rmhelper3(t_rm *rm)
+{
+	if ((*rm).node)
+	{
+		if ((*rm).topnode)
+			(*rm).topnode->down = (*rm).next;
+		if ((*rm).topnode)
+			(*rm).topnode = (*rm).topnode->next;
+		if ((*rm).i != 0)
+			(*rm).node->right = (*rm).next;
+		(*rm).node->next = (*rm).next;
+	}
+}
+
 static t_map	*rmhelper(t_rm *rm)
 {
 	if ((*rm).var)
@@ -48,16 +62,7 @@ static t_map	*rmhelper(t_rm *rm)
 		(*rm).next->color.pixel = 0XFFFFFFFF;
 	if (!(*rm).head)
 		(*rm).head = (*rm).next;
-	if ((*rm).node)
-	{
-		if ((*rm).topnode)
-			(*rm).topnode->down = (*rm).next;
-		if ((*rm).topnode)
-			(*rm).topnode = (*rm).topnode->next;
-		if ((*rm).i != 0)
-			(*rm).node->right = (*rm).next;
-		(*rm).node->next = (*rm).next;
-	}
+	rmhelper3(rm);
 	return ((*rm).head);
 }
 

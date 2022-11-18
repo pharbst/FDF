@@ -6,16 +6,14 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:53:09 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 17:17:51 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/18 17:52:07 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	keyaction_special(t_a *a)
+void	keyaction_special1(t_a *a)
 {
-	if (a->keys.tab && !a->old_keys.tab)
-		ft_print_map(a->map);
 	if (a->keys.space && !a->old_keys.space)
 	{
 		a->alpha = 0;
@@ -36,7 +34,11 @@ void	keyaction_special(t_a *a)
 		a->zoom = 1;
 		reset_coords(a);
 	}
-	else if (a->keys.f2 && !a->old_keys.f2)
+}
+
+void	keyaction_special2(t_a *a)
+{
+	if (a->keys.f2 && !a->old_keys.f2)
 	{
 		a->alpha = 0;
 		a->beta = -90;

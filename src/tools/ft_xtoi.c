@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 16:22:46 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 01:17:58 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/18 17:45:41 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	help(char *src, long *ret)
 {
-		if (ft_isdigit(*src))
-			*ret = (16 * *ret) + (*src - '0');
-		else if (*src >= 'a' && *src <= 'f')
-			*ret = (16 * *ret) + (*src - ('a' - 10));
-		else if (*src >= 'A' && *src <= 'F')
-			*ret = (16 * *ret) + (*src - ('A' - 10));
+	if (ft_isdigit(*src))
+		*ret = (16 * *ret) + (*src - '0');
+	else if (*src >= 'a' && *src <= 'f')
+		*ret = (16 * *ret) + (*src - ('a' - 10));
+	else if (*src >= 'A' && *src <= 'F')
+		*ret = (16 * *ret) + (*src - ('A' - 10));
 }
 
 long	ft_xtoi(char *src)

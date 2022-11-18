@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: peter <peter@student.42.fr>                +#+  +:+       +#+         #
+#    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 13:40:02 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/10 17:29:30 by peter            ###   ########.fr        #
+#    Updated: 2022/11/18 17:52:35 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,6 @@ SRC_NAME	=	main.c \
 				matrix_multiply.c \
 				read_map.c \
 				reset_coords.c \
-				structprint.c \
 
 # directorys
 INC_DIR		=	includes/

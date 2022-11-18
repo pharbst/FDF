@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peter <peter@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 13:41:25 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 17:29:24 by peter            ###   ########.fr       */
+/*   Updated: 2022/11/18 17:44:51 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ void	keyaction_arrow2(t_a *a);
 void	keyaction_rotation1(t_a *a);
 void	keyaction_rotation2(t_a *a);
 void	keyaction_rotation3(t_a *a);
-void	keyaction_special(t_a *a);
+void	keyaction_special1(t_a *a);
+void	keyaction_special2(t_a *a);
 void	keyaction_y(t_a *a);
 void	keyaction_zoom(t_a *a);
 void	keyhook_arrow(t_a *a);

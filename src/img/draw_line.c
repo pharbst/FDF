@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:37:26 by pharbst           #+#    #+#             */
-/*   Updated: 2022/11/10 00:58:13 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/11/18 17:35:41 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ static void	ft_fdy(t_bre vars, t_a *a, unsigned int color)
 	}
 }
 
-void	draw_line(unsigned int vector1[2], unsigned int vector2[2], t_a *a, unsigned int color)
+void	draw_line(unsigned int vector1[2], unsigned int vector2[2], t_a *a
+			, unsigned int color)
 {
 	t_bre	vars;
 
