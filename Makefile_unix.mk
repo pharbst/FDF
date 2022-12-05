@@ -39,7 +39,6 @@ $(NAME):	header glfw MLX_header $(MLX42) libftio_header $(LIBFTIO) obj_header $(
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)*/%.c
 	@mkdir -p $(OBJ_DIR)
-	@echo "$(FGreen)Compiling:$(RESET) $(notdir $<)"
 	@$(CC) $(CFLAGS) -o $@ -c $(INC_LIBFTIO) $(INC_MLX) $^ $(INC_SRC)
 
 glfw:
