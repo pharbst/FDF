@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 16:38:37 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/08 22:32:00 by pharbst          ###   ########.fr        #
+#    Updated: 2022/12/05 09:14:14 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,10 +31,11 @@ FCyan			=	$(shell echo -e "\033[1;36m")
 FWhite			=	$(shell echo -e "\033[1;37m")
 White			=	$(shell echo -e "\033[0;37m")
 RESET			=	$(shell echo -e "\033[0m")
+TICK			=	$(shell echo -e "\xE2\x9C\x94")
 
-$(NAME):	glfw $(MLX42) $(LIBFTIO) $(OBJ)
+$(NAME):	header glfw MLX_header $(MLX42) libftio_header $(LIBFTIO) obj_header $(OBJ) linking_header
 	@$(CC) $(CFLAGS) $(LINUX_FLAGS) $(OBJ) $(INC_SRC) $(INC_LIBFTIO) $(INC_MLX) -L $(MLX_DIR) -lmlx42 -L $(LIBFT_DIR) -lftio -o  $(NAME)
-	@echo "$(FGreen)Done$(RESET)"
+	@printf "$(FGreen)[$(TICK)]\n"
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)*/%.c
 	@mkdir -p $(OBJ_DIR)

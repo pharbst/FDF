@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 18:19:35 by pharbst           #+#    #+#              #
-#    Updated: 2022/11/09 14:10:01 by pharbst          ###   ########.fr        #
+#    Updated: 2022/12/05 08:53:44 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,19 +29,19 @@ FCyan			=	$(shell echo "\033[1;36m")
 FWhite			=	$(shell echo "\033[1;37m")
 White			=	$(shell echo "\033[0;37m")
 RESET			=	$(shell echo "\033[0m")
+TICK			=	$(shell echo "\xE2\x9C\x94")
 
 LIB_GLFW	=	-lglfw
 
 GLFW_DIR	=	/Users/$(USER)/.brew/opt/glfw/lib/
 BREW_FILE	=	/Users/$(USER)/.brewconfig.zsh
 
-$(NAME):	glfw $(MLX42) $(LIBFTIO) $(OBJ)
+$(NAME):	header glfw MLX_header $(MLX42) libftio_header $(LIBFTIO) obj_header $(OBJ) linking_header
 	@$(CC) $(CFLAGS) $(OBJ) $(MLX42) $(INC_GLFW) $(LIB_GLFW) -L $(GLFW_DIR) -L $(LIBFT_DIR) -lftio -framework Cocoa -framework OpenGL -framework IOKit -o $(NAME)
-	@echo "$(FGreen)Done"
+	@printf "$(FGreen)[$(TICK)]\n"
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)*/%.c
 	@mkdir -p $(OBJ_DIR)
-	@echo "$(FGreen)Compiling:$(RESET) $(notdir $<)"
 	@$(CC) $(CFLAGS) -o $@ -c $(INC_LIBFTIO) $(INC_MLX) $^ $(INC_SRC)
 
 glfw: $(BREW_FILE) $(GLFW_DIR)
@@ -53,4 +53,4 @@ $(GLFW_DIR):
 
 $(BREW_FILE):
 	@echo "$(FPurple) ----- INSTALLING BREW ----- $(RESET)"
-	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+	@curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
